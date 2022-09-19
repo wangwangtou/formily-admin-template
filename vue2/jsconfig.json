@@ -1,0 +1,10 @@
+{ 
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "~formily/*": ["../formily/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

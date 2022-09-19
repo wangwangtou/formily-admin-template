@@ -1,0 +1,20 @@
+{
+  "name": "formily-admin-template",
+  "version": "1.0.0",
+  "description": "A formily admin template with FormilyJs & axios & iconfont & permission control & lint",
+  "author": "Wang <wangwangtou@qq.com>",
+  "scripts": {},
+  "dependencies": {
+    "@formily/core": "^2.2.2",
+    "@formily/json-schema": "^2.2.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "engines": {
+    "node": ">=8.9",
+    "npm": ">= 3.0.0"
+  },
+  "license": "MIT"
+}
