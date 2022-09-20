@@ -1,5 +1,10 @@
 import { connect, mapProps, useField } from '@formily/vue'
-import { Button, Link, Tooltip as ElTooltip, Row, Col, Pagination as ElPagination, Rate as ElRate } from 'element-ui'
+import { observer } from '@formily/reactive-vue'
+import { Button, Link, Tooltip as ElTooltip, Row, Col, Pagination as ElPagination, Rate as ElRate
+  , Dropdown as ElDropdown
+  , DropdownItem as ElDropdownItem
+  , DropdownMenu as ElDropdownMenu
+} from 'element-ui'
 import { defineComponent, h, onMounted, getCurrentInstance } from 'vue-demi'
 import SortableJs from 'sortablejs'
 
@@ -114,7 +119,42 @@ const Tooltip = connect(ElTooltip, mapProps((props, field) => {
     value: props.open
   }
 }))
-const Rate = connect(ElRate)
+const Rate = observer(ElRate)
+const Dropdown = observer(defineComponent({
+  name: 'Dropdown',
+  props: {
+    title: String,
+    wrapItem: Boolean
+  },
+  setup: function(props, { attrs, slots, listeners: on, ...data }) {
+    return function() {
+      return h(ElDropdown, {
+        attrs,
+        props: {
+          'show-timeout': 100,
+          trigger: 'click'
+        },
+        on
+      }, [
+        h(Button, { attrs: { plain: true }},
+          [
+            props.title || 'null',
+            h('i', { class: 'el-icon-caret-bottom el-icon--right' })
+          ]),
+        h(ElDropdownMenu, {
+          class: attrs.dropdownClass,
+          style: attrs.dropdownStyle,
+          slot: 'dropdown'
+        }, [
+          props.wrapItem
+            ? h(ElDropdownItem, {
+            }, slots.default())
+            : slots.default()
+        ])
+      ])
+    }
+  }
+}))
 const getPaginationDefault = () => {
   return { current: 1, size: 10 }
 }
@@ -149,5 +189,5 @@ const Pagination = defineComponent({
 })
 
 export {
-  Sortable, Row, Col, Button, Link, Tooltip, Pagination, FormatPreview, InputNative, AdminTitle, Rate
+  Sortable, Row, Col, Button, Dropdown, Link, Tooltip, Pagination, FormatPreview, InputNative, AdminTitle, Rate
 }

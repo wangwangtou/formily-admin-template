@@ -53,10 +53,18 @@ export default {
     scope: {
       type: Object,
       default() { return {} }
+    },
+    effects: {
+      type: Function,
+      default() { return null }
     }
   },
   data() {
-    const form = createForm()
+    const form = createForm({
+      effects: () => {
+        this.effects && this.effects()
+      }
+    })
     return {
       renderKey: 1,
       form

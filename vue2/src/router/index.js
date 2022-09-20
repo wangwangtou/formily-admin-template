@@ -208,13 +208,19 @@ export const asyncRoutes = [
     children: [
       {
         path: 'create',
-        component: () => import('@/views/example/create'),
+        components: {
+          default: () => import('@/views/example/create'),
+          formily: () => import('@/views_f/example/create')
+        },
         name: 'CreateArticle',
         meta: { title: 'Create Article', icon: 'edit' }
       },
       {
         path: 'edit/:id(\\d+)',
-        component: () => import('@/views/example/edit'),
+        components: {
+          default: () => import('@/views/example/edit'),
+          formily: () => import('@/views_f/example/edit')
+        },
         name: 'EditArticle',
         meta: { title: 'Edit Article', noCache: true, activeMenu: '/example/list' },
         hidden: true

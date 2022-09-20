@@ -1,5 +1,6 @@
 
 import { defineComponent, h } from 'vue-demi'
+import { h as _formilyH } from '@formily/vue'
 
 export const transformNativeOn = tag => {
   return defineComponent({
@@ -19,7 +20,7 @@ export const transformNativeOn = tag => {
           on: Object.assign({}, on),
           nativeOn: Object.assign({}, nativeOn)
         }
-        return h(tag, data, slots)
+        return _formilyH(tag, data, slots)
       }
     }
   })
@@ -31,9 +32,9 @@ export const wrapComponent = (component, tag, tagData) => {
       return function() {
         const { slots, listeners, ...data } = context
         data.on = listeners
-        return h(tag, tagData, [
-          h(component, data, slots)
-        ])
+        return _formilyH(tag, tagData, {
+          default: () => _formilyH(component, data, slots)
+        })
       }
     }
   })
