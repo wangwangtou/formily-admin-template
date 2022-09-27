@@ -4,7 +4,7 @@
       <div class="title-container">
         <h3 class="title">Login Form</h3>
       </div>
-      <FormilyPage :schema="schema" />
+      <FormilyPage :schema="schema" schema-key="Login" />
       <div style="position:relative">
         <div class="tips">
           <span>Username : admin</span>

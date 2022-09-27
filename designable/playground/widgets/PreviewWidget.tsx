@@ -29,6 +29,9 @@ import {
   ArrayTable,
   ArrayCards,
 } from '@formily/antd'
+
+import * as PlaygroundComponents from '../formily'
+
 import { Card, Slider, Rate } from 'antd'
 import { TreeNode } from '@designable/core'
 import { transformToSchema } from '@designable/formily-transformer'
@@ -73,6 +76,8 @@ const SchemaField = createSchemaField({
     Card,
     Slider,
     Rate,
+
+    ...PlaygroundComponents,
   },
 })
 

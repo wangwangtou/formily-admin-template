@@ -21,6 +21,7 @@ export default {
   output: {
     path: path.resolve(__dirname, '../build'),
     filename: '[name].[hash].bundle.js',
+    // libraryTarget: 'system', // 放到prod下
   },
   resolve: {
     modules: ['node_modules'],

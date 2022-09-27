@@ -2,7 +2,7 @@
   <div class="dashboard-container">
     <div class="dashboard-editor-container">
       <github-corner class="github-corner" />
-      <FormilyPage :schema="schema" :components="components" :scope="scope" />
+      <FormilyPage :schema="schema" :components="components" :scope="scope" schema-key="Dashboard" />
     </div>
   </div>
 </template>

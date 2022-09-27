@@ -18,6 +18,13 @@ const createPages = (pages) => {
 export default {
   ...baseConfig,
   mode: 'production',
+  output: {
+    ...baseConfig.output,
+    libraryTarget: 'system',
+  },
+  externals: {
+    // 打包时，不往外拆分
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',

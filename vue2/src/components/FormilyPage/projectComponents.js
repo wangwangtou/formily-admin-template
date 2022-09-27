@@ -4,6 +4,7 @@ import { Button, Link, Tooltip as ElTooltip, Row, Col, Pagination as ElPaginatio
   , Dropdown as ElDropdown
   , DropdownItem as ElDropdownItem
   , DropdownMenu as ElDropdownMenu
+  , Tree as ElTree
 } from 'element-ui'
 import { defineComponent, h, onMounted, getCurrentInstance } from 'vue-demi'
 import SortableJs from 'sortablejs'
@@ -188,6 +189,7 @@ const Pagination = defineComponent({
   }
 })
 
+const TreeSelect = ElTree
 export {
-  Sortable, Row, Col, Button, Dropdown, Link, Tooltip, Pagination, FormatPreview, InputNative, AdminTitle, Rate
+  Sortable, Row, Col, Button, Dropdown, Link, Tooltip, Pagination, FormatPreview, InputNative, AdminTitle, Rate, TreeSelect
 }

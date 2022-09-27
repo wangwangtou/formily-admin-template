@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "~formily/*": ["formily/*"]
+      "formily/*": ["formily/*"]
     }
   },
   "exclude": ["node_modules", "dist"]

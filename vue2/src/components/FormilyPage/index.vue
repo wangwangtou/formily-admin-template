@@ -3,6 +3,11 @@
     <slot name="before" />
     <SchemaField :schema="schema" :components="components" :scope="scopeWithAT" />
     <slot name="default" />
+    <FormConsumer>
+      <template #default="{ form }">
+        <router-link v-if="schemaKey" :to="'/designable?key=' + schemaKey">编辑</router-link>
+      </template>
+    </FormConsumer>
   </FormProvider>
 </template>
 
@@ -42,6 +47,10 @@ export default {
     SchemaField
   },
   props: {
+    schemaKey: {
+      type: String,
+      default() { return '' }
+    },
     schema: {
       type: Object,
       default() { return {} }

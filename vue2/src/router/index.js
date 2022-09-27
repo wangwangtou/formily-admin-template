@@ -197,6 +197,15 @@ export const asyncRoutes = [
   tableRouter,
 
   {
+    path: '/designable',
+    component: () => import('@/views_f/designable'),
+    name: 'designable',
+    meta: {
+      title: 'Designable',
+      icon: 'el-icon-s-help'
+    }
+  },
+  {
     path: '/example',
     component: Layout,
     redirect: '/example/list',
