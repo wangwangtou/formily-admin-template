@@ -14,37 +14,25 @@ const tableRouter = {
   children: [
     {
       path: 'dynamic-table',
-      components: {
-        default: () => import('@/views/table/dynamic-table/index'),
-        formily: () => import('@/views_f/table/dynamic-table/index')
-      },
+      component: () => import('@/views/table/dynamic-table/index'),
       name: 'DynamicTable',
       meta: { title: 'Dynamic Table' }
     },
     {
       path: 'drag-table',
-      components: {
-        default: () => import('@/views/table/drag-table'),
-        formily: () => import('@/views_f/table/drag-table')
-      },
+      component: () => import('@/views/table/drag-table'),
       name: 'DragTable',
       meta: { title: 'Drag Table' }
     },
     {
       path: 'inline-edit-table',
-      components: {
-        default: () => import('@/views/table/inline-edit-table'),
-        formily: () => import('@/views_f/table/inline-edit-table')
-      },
+      component: () => import('@/views/table/inline-edit-table'),
       name: 'InlineEditTable',
       meta: { title: 'Inline Edit' }
     },
     {
       path: 'complex-table',
-      components: {
-        default: () => import('@/views/table/complex-table'),
-        formily: () => import('@/views_f/table/complex-table')
-      },
+      component: () => import('@/views/table/complex-table'),
       name: 'ComplexTable',
       meta: { title: 'Complex Table' }
     }
