@@ -2,7 +2,7 @@
   "name": "formily-admin-template-vue2",
   "version": "1.0.0",
   "description": "A formily admin template with FormilyJs & vue2 & axios & iconfont & permission control & lint",
-  "author": "Pan <panfree23@gmail.com>",
+  "author": "wangwangtou <wangwangtou@qq.com>",
   "scripts": {
     "dev": "vue-cli-service serve",
     "lint": "eslint --ext .js,.vue src",
@@ -106,9 +106,5 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/PanJiaChen/vue-element-admin.git"
   }
 }
