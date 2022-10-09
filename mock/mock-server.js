@@ -4,7 +4,7 @@ const chalk = require('chalk')
 const path = require('path')
 const Mock = require('mockjs')
 
-const mockDir = path.join(process.cwd(), 'mock')
+const mockDir = __dirname
 
 function registerRoutes(app) {
   let mockLastIndex
@@ -42,7 +42,6 @@ const responseFake = (url, type, respond) => {
     }
   }
 }
-
 module.exports = app => {
   // parse app.body
   // https://expressjs.com/en/4x/api.html#req.body

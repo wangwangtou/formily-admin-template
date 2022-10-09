@@ -1,0 +1,63 @@
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin scrollBar {
+  &::-webkit-scrollbar-track-piece {
+    background: #d3dce6;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #99a9bf;
+    border-radius: 20px;
+  }
+}
+
+@mixin relative {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+// @mixin pct($pct) {
+//   width: $pct;
+//   position: relative;
+//   margin: 0 auto;
+// }
+
+// @mixin triangle($width, $height, $color, $direction) {
+//   height: 0;
+//   width: 0;
+
+//   @if $direction==up {
+//     border-bottom: $height solid $color;
+//     border-left: $width/2 solid transparent;
+//     border-right: $width/2 solid transparent;
+//   }
+
+//   @else if $direction==right {
+//     border-left: $height solid $color;
+//     border-top: $width/2 solid transparent;
+//     border-bottom: $width/2 solid transparent;
+//   }
+
+//   @else if $direction==down {
+//     border-top: $height solid $color;
+//     border-left: $width/2 solid transparent;
+//     border-right: $width/2 solid transparent;
+//   }
+
+//   @else if $direction==left {
+//     border-right: $height solid $color;
+//     border-top: $width/2 solid transparent;
+//     border-bottom: $width/2 solid transparent;
+//   }
+// }
