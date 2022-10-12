@@ -19,7 +19,7 @@ export const Screenfull: React.FunctionComponent<ScreenfullProps> = ({ className
         screenfull.off('change', change)
       }
     }
-  })
+  }, [])
   return (
     <div className={className}>
       <SvgIcon iconClass={isFullscreen?'exit-fullscreen':'fullscreen'} onClick={() => {

@@ -25,6 +25,8 @@ interface FormilyPageProps {
   components?: {
     [key: string]: JSXComponent
   },
+  before?: React.ReactNode,
+  after?: React.ReactNode,
   scope?: Object,
   effects?: (form: Form) => void
 }
@@ -44,7 +46,7 @@ const SchemaField = createSchemaField({
   }
 })
 
-export const FormilyPage: React.FunctionComponent<FormilyPageProps> = ({ schema, schemaKey, components, effects, scope }) => {
+export const FormilyPage: React.FunctionComponent<FormilyPageProps> = ({ schema, schemaKey, components, effects, scope, before, after, children }) => {
   const form = createForm({
     effects
   })
@@ -54,14 +56,15 @@ export const FormilyPage: React.FunctionComponent<FormilyPageProps> = ({ schema,
   }
   return (
     <FormProvider form={form}>
-      <slot name="before" />
+      {before}
       <SchemaField schema={schema.schema} components={components} scope={scopeWithAT} />
-      <slot name="default" />
+      {children}
       <FormConsumer>
         {form => (
           schemaKey ? <NavLink to={'/designable?key=' + schemaKey}>编辑</NavLink> : null
         )}
       </FormConsumer>
+      {after}
     </FormProvider>
   )
 }

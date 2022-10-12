@@ -1,6 +1,6 @@
 import { usePermissionState } from '@/hooks'
 import { Select } from 'antd'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { SvgIcon } from '../SvgIcon'
 import { resolve } from 'path'
 import Fuse from 'fuse.js'
@@ -16,7 +16,7 @@ export const Search: React.FunctionComponent<SearchProps> = ({ className, childr
   const [ show, setShow ] = useState(false)
   const [ options, setOptions ] = useState([])
   const [ searchValue, setSearchValue ] = useState('')
-  let $select = null
+  const selectRef = useRef(null)
   const navigate = useNavigate()
   const { permissionState: { routes } } = usePermissionState()
   const generateRoutes = (routes, basePath = '/', prefixTitle = []) => {
@@ -74,7 +74,7 @@ export const Search: React.FunctionComponent<SearchProps> = ({ className, childr
   const closeSearch = () => {
     setOptions([])
     setSearchValue('')
-    $select && $select.blur()
+    selectRef.current && selectRef.current.blur()
     setShow(false)
   }
   const onChange = (path) => {
@@ -86,17 +86,18 @@ export const Search: React.FunctionComponent<SearchProps> = ({ className, childr
     return () => {
       document.removeEventListener('click', closeSearch)
     }
-  })
+  }, [])
   return (
     <div className={'header-search ' + (show ? 'show' : '') + ' ' + className}>
       <SvgIcon className="search-icon" iconClass="search" onClick={(evt) => {
-        setShow(true)
-        $select && $select.focus()
+        setShow(!show)
+        selectRef.current && selectRef.current.focus()
         evt.stopPropagation()
       }} />
       <Select
-        ref={$ref => $select = $ref}
+        ref={selectRef}
         searchValue={searchValue}
+        onClick={evt=>evt.stopPropagation()}
         onSearch={value => querySearch(value) }
         filterOption={false}
         showSearch={true}
