@@ -38,7 +38,7 @@ const page = {
                   'x-component': 'ArrayTable.Column',
                   'x-component-props': {
                     title: 'ID',
-                    width: '65',
+                    width: '65px',
                     align: 'center'
                   },
                   properties: {
@@ -120,7 +120,7 @@ const page = {
                   'x-component': 'ArrayTable.Column',
                   'x-component-props': {
                     title: 'Readings',
-                    width: '95',
+                    width: '95px',
                     align: 'center'
                   },
                   properties: {
@@ -136,7 +136,7 @@ const page = {
                   'x-component': 'ArrayTable.Column',
                   'x-component-props': {
                     title: 'Status',
-                    width: '110',
+                    width: '110px',
                     align: 'center'
                   },
                   properties: {
@@ -152,7 +152,7 @@ const page = {
                   'x-component': 'ArrayTable.Column',
                   'x-component-props': {
                     title: 'Drag',
-                    width: '80',
+                    width: '80px',
                     align: 'center'
                   },
                   properties: {

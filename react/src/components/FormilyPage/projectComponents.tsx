@@ -1,13 +1,14 @@
 import React from 'react'
 import { connect, mapProps, useField } from '@formily/react'
 import { observer } from '@formily/reactive-react'
-import { Button, Tooltip as ATooltip, Row, Col
+import { Button as AButton, ButtonProps as AButtonProps, Tooltip as ATooltip, Row, Col
   , Pagination as APagination, PaginationProps as APaginationProps
   , Rate as ARate
   , Dropdown as ADropdown, DropdownProps as ADropdownProps
   , Tree as ATree,
   Menu
 } from 'antd'
+import { ArrayTable as FArrayTable, ArrayBase } from '@formily/antd'
 // import SortableJs from 'sortablejs'
 
 function parseTime(time, cFormat) {
@@ -93,58 +94,56 @@ const FormatPreview: React.FunctionComponent<FormatPreviewProps & CommonComponen
   )
 }
 
-const Sortable: React.FunctionComponent = () => {
+const Button : React.FunctionComponent<AButtonProps> = (props) => {
+  const icon = typeof props.icon == 'string' && props.icon.indexOf('el-') == 0 ?
+    (<i className={props.icon}></i>) : props.icon
+  const sizeMap = {
+    mini: 'small',
+    small: 'middle',
+    medium: 'large'
+  }
+  let className = props.className || ''
+  let type: string = props.type
+  if (type == 'success') {
+    type = 'primary'
+    className = className + ' ant-btn-success'
+  }
   return (
-    <>Sortable</>
+    <AButton {...props}
+      icon={icon}
+      size={sizeMap[props.size] || props.size || 'middle'}
+      type={type}
+      className={className}
+      ></AButton>
   )
 }
-// const Sortable = defineComponent({
-//   props: {
-//     arrayField: String,
-//     containerSelector: String,
-//     ghostClass: {
-//       type: String,
-//       default: 'sortable-ghost'
-//     }
-//   },
-//   setup(props, { attrs, slots, ...data }) {
-//     var fieldRef = useField()
-//     onMounted(() => {
-//       const vm = getCurrentInstance()
-//       const elm = vm.vnode.elm
-//       const el = elm.querySelectorAll('.el-table__body-wrapper > table > tbody')[0]
-//       SortableJs.create(el, {
-//         ghostClass: props.ghostClass, // Class name for the drop placeholder,
-//         setData: function(dataTransfer) {
-//           // to avoid Firefox bug
-//           // Detail see : https://github.com/RubaXa/Sortable/issues/1012
-//           dataTransfer.setData('Text', '')
-//         },
-//         onEnd: evt => {
-//           const { oldIndex, newIndex } = evt
-//           const arrayField = fieldRef.value.query(props.arrayField).take()
-//           arrayField.move(oldIndex, newIndex)
-//           // const targetRow = this.list.splice(evt.oldIndex, 1)[0]
-//           // this.list.splice(evt.newIndex, 0, targetRow)
 
-//           // // for show the changes, you can delete in you code
-//           // const tempIndex = this.newList.splice(evt.oldIndex, 1)[0]
-//           // this.newList.splice(evt.newIndex, 0, tempIndex)
-//         }
-//       })
-//     })
-//     data.attrs = attrs
-//     return function() {
-//       return h('div', data, slots.default())
-//     }
-//   }
-// })
+// formily/antd 的 ArrayTable.SortHandle 是有效的，不需要单独实现
+const Sortable: React.FunctionComponent = ({
+  children
+}) => {
+  return (
+    <>{children}</>
+  )
+}
+// formily/antd 的 ArrayTable.SortHandle 用到了 Table的rowKey属性，覆盖后会导致SortHandle的bug
+const ArrayTable : React.FunctionComponent<any> = ({ rowKey, ...props }) => {
+  return (
+    <FArrayTable {...props}></FArrayTable>
+  )
+}
+ArrayTable.displayName = FArrayTable.displayName
+ArrayTable.Addition = FArrayTable.Addition
+ArrayTable.Column = FArrayTable.Column
+ArrayBase.mixin(ArrayTable)
+
+
 const Tooltip = connect(ATooltip, mapProps((props: any) => {
   return {
     visible: props.open
   }
 }))
-const Rate = observer(ARate)
+const Rate = ARate // observer(ARate)
 
 interface DropdownProps {
   title: string,
@@ -202,5 +201,5 @@ const Link: React.FunctionComponent = (props) => {
 
 const TreeSelect = ATree
 export {
-  Sortable, Row, Col, Button, Dropdown, Link, Tooltip, Pagination, FormatPreview, InputNative, AdminTitle, Rate, TreeSelect
+  Sortable, ArrayTable, Row, Col, Button, Dropdown, Link, Tooltip, Pagination, FormatPreview, InputNative, AdminTitle, Rate, TreeSelect
 }

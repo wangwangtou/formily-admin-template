@@ -13,25 +13,28 @@ import { NavLink } from 'react-router-dom'
 
 export interface DesignablePage {
     form: {
-        labelCol: Number,
-        wrapperCol: Number
+        labelCol: number,
+        wrapperCol: number
     },
     schema: ISchema
 }
 
+type FormilyComponent = JSXComponent | string
+
+interface FormilyComponents {
+  [key: string]: FormilyComponent | FormilyComponents
+}
 interface FormilyPageProps {
   schema: DesignablePage,
   schemaKey?: string,
-  components?: {
-    [key: string]: JSXComponent
-  },
+  components?: FormilyComponents,
   before?: React.ReactNode,
   after?: React.ReactNode,
   scope?: Object,
   effects?: (form: Form) => void
 }
 
-const SchemaField = createSchemaField({
+export const SchemaField = createSchemaField({
   components: {
     ...FormilyAntd,
     // Input: Object.assign(

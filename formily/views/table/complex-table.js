@@ -275,7 +275,7 @@ const page = {
               'x-component': 'ArrayTable.Column',
               'x-component-props': {
                 title: 'Readings',
-                width: '95',
+                width: '95px',
                 align: 'center'
               },
               properties: {
@@ -291,7 +291,7 @@ const page = {
               'x-component': 'ArrayTable.Column',
               'x-component-props': {
                 title: 'Status',
-                width: '100',
+                width: '100px',
                 align: 'center'
               },
               properties: {
@@ -307,9 +307,9 @@ const page = {
               'x-component': 'ArrayTable.Column',
               'x-component-props': {
                 title: 'Actions',
-                width: '230',
+                width: '230px',
                 align: 'center',
-                'class-name': 'small-padding fixed-width'
+                'className': 'small-padding fixed-width'
               },
               properties: {
                 edit: {
