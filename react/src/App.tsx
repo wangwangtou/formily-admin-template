@@ -57,8 +57,10 @@ export const App: React.FunctionComponent = () => {
       await userState.userActions.getInfo()
       await permissionState.permissionActions.generateRoutes(userState.userState.roles)
     }
-    loadUserInfo()
-  }, [])
+    if (userState.userState.token) {
+      loadUserInfo()
+    }
+  }, [userState.userState.token])
   return (
     <GlobalContext.Provider value={{
       ...appState,

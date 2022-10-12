@@ -49,6 +49,7 @@ export const constantRoutes: Route[] = [
   { path: '/designable', element: <Designable />, hidden: true },
   { path: '/', element: <Layout />, 
     children: [
+      { path: '', element: <Navigate to={"/dashboard"} />, hidden: true },
       { path: 'dashboard', element: <Dashboard />, name: 'Dashboard', meta: { title: 'Dashboard', icon: 'dashboard', affix: true } },
     ]
   },
