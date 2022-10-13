@@ -20,5 +20,20 @@ const propsClassNamePatch: SchemaPatch = (schema: ISchema) => {
   }
   return schema
 }
+/**
+ * React 的content会当作一部分children放到控件中，将vue的slot name格式直接放到props里即可
+ */
+const xContentPatch: SchemaPatch = (schema: ISchema) => {
+  if (typeof schema["x-content"] == 'object' && !Array.isArray(schema["x-content"])) {
+    schema["x-component-props"] = {
+      ...schema["x-content"],
+      ...schema["x-component-props"],
+    }
+    delete schema["x-content"]
+  }
+  return schema
+}
 
-Schema.registerPatches(propsClassNamePatch)
+Schema.registerPatches(
+  propsClassNamePatch,
+  xContentPatch)

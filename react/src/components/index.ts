@@ -16,4 +16,8 @@ export * from './CountTo'
 export * from './PanThumb'
 export * from './TextHoverEffect'
 
+export * from './Tinymce'
+export * from './Sticky'
+export * from './Upload'
+
 export * from './FormilyPage'

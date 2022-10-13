@@ -23,7 +23,7 @@ const RouterElement: React.FunctionComponent<{ roles: string[], token: string }>
 
   useEffect(() => {
     const curRoute: any = routes[0]
-    document.title = getPageTitle(curRoute && curRoute.meta ? curRoute.meta.title : '')
+    document.title = getPageTitle(curRoute && curRoute.route && curRoute.route.meta ? curRoute.route.meta.title : '')
   }, [location])
   const permission = routes.length ? hasPermission(roles, routes[0].route) : false
   const whiteList = ['/login', '/auth-redirect'] 

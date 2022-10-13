@@ -8,7 +8,7 @@ import { Button as AButton, ButtonProps as AButtonProps, Tooltip as ATooltip, Ro
   , Tree as ATree,
   Menu
 } from 'antd'
-import { ArrayTable as FArrayTable, ArrayBase } from '@formily/antd'
+import { ArrayTable as FArrayTable, ArrayBase, Input as FInput, DatePicker as FDatePicker } from '@formily/antd'
 // import SortableJs from 'sortablejs'
 
 function parseTime(time, cFormat) {
@@ -154,6 +154,7 @@ interface DropdownProps {
 const Dropdown = observer<DropdownProps & ADropdownProps>(props => {
   return (
     <ADropdown {...props} trigger={["click"]}
+      placement="bottomRight"
       overlay={
         props.wrapItem ?
         <Menu
@@ -164,7 +165,7 @@ const Dropdown = observer<DropdownProps & ADropdownProps>(props => {
         </Menu> : <>{props.children}</>
       }>
       <Button>
-        {props.title || ''},
+        {props.title || ''}
         <i className='el-icon-caret-bottom el-icon--right'></i>
       </Button>
     </ADropdown>
@@ -199,7 +200,28 @@ const Link: React.FunctionComponent = (props) => {
   )
 }
 
+const Input = ({prepend, ...props}) => {
+  return (
+    <FInput addonBefore={prepend} {...props}/>
+  )
+}
+Input.displayName = FInput.displayName
+Input.TextArea = FInput.TextArea
+
 const TreeSelect = ATree
+
+// el-ui 用的format格式 DD表示星期， dd 表示天， 在antd里不一样
+const DatePicker = ({format, ...props}) => {
+  const cvtFormat = format ? format.replace(/y/g,'Y')
+    .replace(/[Dd]/g, function (val) {
+      return val == 'D' ? 'd' : 'D'
+    }) : null
+  return (
+    <FDatePicker format={cvtFormat} {...props}/>
+  )
+}
+DatePicker.displayName = FDatePicker.displayName
+
 export {
-  Sortable, ArrayTable, Row, Col, Button, Dropdown, Link, Tooltip, Pagination, FormatPreview, InputNative, AdminTitle, Rate, TreeSelect
+  Sortable, ArrayTable, Input, DatePicker, Row, Col, Button, Dropdown, Link, Tooltip, Pagination, FormatPreview, InputNative, AdminTitle, Rate, TreeSelect
 }

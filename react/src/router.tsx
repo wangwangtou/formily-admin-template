@@ -75,7 +75,7 @@ export const asyncRoutes: Route[] = [
       { path: '', element: <Navigate to="/example/list"/>, hidden: true },
       { path: 'list', element: <ExampleList />, name: 'ArticleList', meta: { title: 'Article List', icon: 'list' }},
       { path: 'create', element: <ExampleCreate />, name: 'CreateArticle', meta: { title: 'Create Article', icon: 'edit' } },
-      { path: 'edit/:id(\\d+)', element: <ExampleEdit />, name: 'EditArticle', meta: { title: 'Edit Article', noCache: true, activeMenu: 'ArticleList' }, hidden: true },
+      { path: 'edit/:id', element: <ExampleEdit />, name: 'EditArticle', meta: { title: 'Edit Article', noCache: true, activeMenu: 'ArticleList' }, hidden: true },
     ]
   },
   { path: '/error/', element: <Layout />, name: 'ErrorPages', meta: { title: 'Error Pages', icon: '404' },
