@@ -99,7 +99,7 @@ export default {
         ]
       },
       {
-        test: /\.(woff|woff2|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(woff|woff2|ttf|eot|svg|gif|png)(\?v=\d+\.\d+\.\d+)?$/,
         exclude: [path.resolve(__dirname, '../src/icons')],
         use: ['url-loader'],
       },

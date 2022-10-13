@@ -21,3 +21,5 @@ export * from './Sticky'
 export * from './Upload'
 
 export * from './FormilyPage'
+
+export * from './ErrorBoundary'

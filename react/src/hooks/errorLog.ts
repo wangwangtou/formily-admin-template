@@ -7,7 +7,8 @@ interface Log {
     stack: string,
   },
   tag: string,
-  info: string
+  info: string,
+  url: string,
 }
 
 interface ErrorLogStateDataType {
@@ -27,11 +28,11 @@ interface ErrorLogState {
 
 const initialState: ErrorLogStateDataType = {
   logs: [
-    {
-      err: new Error(),
-      tag: 'div',
-      info: 'string'
-    }
+    // {
+    //   err: new Error(),
+    //   tag: 'div',
+    //   info: 'string'
+    // }
   ]
 }
 

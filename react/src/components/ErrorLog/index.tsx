@@ -34,21 +34,21 @@ export const ErrorLog: React.FunctionComponent<ErrorLogProps> = ({ className, ch
               <>
                 <div>
                   <span className="message-title">Msg:</span>
-                  <Tag color="error">
+                  <Tag color="error" className='wrap-tag'>
                     { row.err ? row.err.message : row.err }
                   </Tag>
                 </div>
                 <br />
                 <div>
                   <span className="message-title" style={{paddingRight: '10px'}}>Info: </span>
-                    <Tag color="warning">
+                    <Tag color="warning" className='wrap-tag'>
                       { row.tag } error in { row.info }
                     </Tag>
                 </div>
                 <br />
                 <div>
                   <span className="message-title" style={{paddingRight: '16px'}}>Url: </span>
-                  <Tag color="success">
+                  <Tag color="success" className='wrap-tag'>
                     { row.url }
                   </Tag>
                 </div>
