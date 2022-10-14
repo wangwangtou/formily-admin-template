@@ -14,25 +14,33 @@
 /* reset element-ui css */
 .login-container {
 
-  .formily-element-form-item {
+  .ant-formily-item {
     color: #454545;
-    .formily-element-form-item-label {
+    .ant-formily-item-label {
       display: none;
     }
-    .el-input {
-      display: inline-block;
+    .ant-input-wrapper {
       height: 50px;
+      .ant-input-group-addon {
+        background: transparent;
+        border: none;
+        color: #C0C4CC;
+      }
+      .ant-input-affix-wrapper {
+        background: transparent;
+        border: none;
+      }
       border: 1px solid rgba(255, 255, 255, 0.1);
       background: rgba(0, 0, 0, 0.1);
       border-radius: 5px;
 
       input {
+        height: 40px;
         background: transparent;
         border: 0px;
         -webkit-appearance: none;
         border-radius: 0px;
         color: @light_gray;
-        height: 47px;
         caret-color: @cursor;
 
         &:-webkit-autofill {

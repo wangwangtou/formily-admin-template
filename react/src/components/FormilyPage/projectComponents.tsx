@@ -8,7 +8,8 @@ import { Button as AButton, ButtonProps as AButtonProps, Tooltip as ATooltip, Ro
   , Tree as ATree,
   Menu
 } from 'antd'
-import { ArrayTable as FArrayTable, ArrayBase, Input as FInput, DatePicker as FDatePicker } from '@formily/antd'
+import { ArrayTable as FArrayTable, ArrayBase, Input as FInput, Password as FPassword, DatePicker as FDatePicker } from '@formily/antd'
+import { ElIcon } from '../ElIcon'
 // import SortableJs from 'sortablejs'
 
 function parseTime(time, cFormat) {
@@ -200,13 +201,25 @@ const Link: React.FunctionComponent = (props) => {
   )
 }
 
-const Input = ({prepend, ...props}) => {
+const Input = ({prepend, prefixIcon, ...props}) => {
   return (
-    <FInput addonBefore={prepend} {...props}/>
+    <FInput addonBefore={<>
+      {prefixIcon ? <i className={prefixIcon} /> : null}
+      {prepend}
+    </>} {...props}/>
   )
 }
 Input.displayName = FInput.displayName
 Input.TextArea = FInput.TextArea
+
+const Password = ({prefixIcon, ...props}) => {
+  return (
+    <FPassword addonBefore={<>
+      {prefixIcon ? <i className={prefixIcon} /> : null}
+    </>} {...props}/>
+  )
+}
+Password.displayName = FPassword.displayName
 
 const TreeSelect = ATree
 
@@ -223,5 +236,5 @@ const DatePicker = ({format, ...props}) => {
 DatePicker.displayName = FDatePicker.displayName
 
 export {
-  Sortable, ArrayTable, Input, DatePicker, Row, Col, Button, Dropdown, Link, Tooltip, Pagination, FormatPreview, InputNative, AdminTitle, Rate, TreeSelect
+  Sortable, ArrayTable, Input, Password, DatePicker, Row, Col, Button, Dropdown, Link, Tooltip, Pagination, FormatPreview, InputNative, AdminTitle, Rate, TreeSelect
 }

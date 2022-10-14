@@ -23,7 +23,7 @@ const page = {
           }
         ],
         'x-component-props': {
-          'prefix-icon': 'el-icon-s-custom'
+          'prefixIcon': 'el-icon-s-custom'
         },
         'x-decorator-props': {},
         'x-designable-id': 'jhq46xcypqo',
@@ -54,7 +54,7 @@ const page = {
             ],
             'x-component-props': {
               // 'prefix-icon': 'formily-icon-password'
-              'prefix-icon': 'el-icon-lock'
+              'prefixIcon': 'el-icon-lock'
             },
             'x-reactions': [
               '{{ FORM.useTipCapsLock($self) }}'
