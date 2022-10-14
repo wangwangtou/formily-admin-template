@@ -203,10 +203,10 @@ const Link: React.FunctionComponent = (props) => {
 
 const Input = ({prepend, prefixIcon, ...props}) => {
   return (
-    <FInput addonBefore={<>
+    <FInput addonBefore={(prefixIcon || prepend) ? <>
       {prefixIcon ? <i className={prefixIcon} /> : null}
       {prepend}
-    </>} {...props}/>
+    </> : null} {...props}/>
   )
 }
 Input.displayName = FInput.displayName
@@ -214,9 +214,9 @@ Input.TextArea = FInput.TextArea
 
 const Password = ({prefixIcon, ...props}) => {
   return (
-    <FPassword addonBefore={<>
+    <FPassword addonBefore={prefixIcon ? <>
       {prefixIcon ? <i className={prefixIcon} /> : null}
-    </>} {...props}/>
+    </> : null} {...props}/>
   )
 }
 Password.displayName = FPassword.displayName
