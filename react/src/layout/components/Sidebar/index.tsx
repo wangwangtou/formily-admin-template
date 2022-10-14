@@ -3,7 +3,7 @@ import React from 'react'
 import { Scrollbar, SvgIcon, ElIcon } from '@/components'
 import { Logo } from './logo'
 import { Menu } from 'antd'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 import { isExternal } from '@/utils/validate'
 import path from 'path'
@@ -31,6 +31,7 @@ export const Sidebar: React.FunctionComponent<SidebarProps> = ({  }) => {
   const { settingState } = useSettingState()
   const { permissionState } = usePermissionState()
   const { appState } = useAppState()
+  const location = useLocation()
   const resolvePath = (routePath, basePath) => {
     if (isExternal(routePath)) {
       return routePath
@@ -47,6 +48,7 @@ export const Sidebar: React.FunctionComponent<SidebarProps> = ({  }) => {
         <Menu defaultOpenKeys={[]}
           mode={appState.sidebar.opened ? 'inline' : 'vertical'}
           theme="dark"
+          selectedKeys={[location.pathname]}
           // style={{backgroundColor: '#304156', color: '#bfcbd9'}}
           // :default-active="activeMenu"
           // :collapse="isCollapse"

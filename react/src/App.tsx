@@ -9,8 +9,9 @@ import {
   hasPermission,
   createUserState,
   createErrorLogState,
+  createTagsViewState,
 
-  RouteContext
+  RouteContext,
 } from './hooks'
 import { routers, Route } from './router'
 import getPageTitle from '@/utils/get-page-title'
@@ -52,6 +53,7 @@ export const App: React.FunctionComponent = () => {
   const permissionState = createPermissionState()
   const userState = createUserState()
   const errorLogState = createErrorLogState()
+  const tagsViewState = createTagsViewState()
   useEffect(() => {
     const loadUserInfo = async () => {
       await userState.userActions.getInfo()
@@ -67,7 +69,8 @@ export const App: React.FunctionComponent = () => {
       ...settingState,
       ...permissionState,
       ...userState,
-      ...errorLogState
+      ...errorLogState,
+      ...tagsViewState
       }}>
       <RouterElement roles={userState.userState.roles} token={userState.userState.token}/>
     </GlobalContext.Provider>
