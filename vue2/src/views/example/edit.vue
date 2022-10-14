@@ -31,7 +31,7 @@ export default {
           this.setTagsViewTitle()
           this.setPageTitle()
 
-          article.timestamp = new Date(article.timestamp)
+          article.displayTime = new Date(article.display_time)
           article.comment_disabled = article.comment_disabled ? 'closed' : 'opened'
           form.setInitialValues(article)
         })

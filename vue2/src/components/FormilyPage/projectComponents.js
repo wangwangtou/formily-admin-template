@@ -52,7 +52,7 @@ function parseTime(time, cFormat) {
   return time_str
 }
 
-const formaters = {
+const formatters = {
   timestamp: (value, format, defVal) => {
     return parseTime(value, format)
   },
@@ -68,7 +68,7 @@ const FormatPreview = defineComponent({
   setup(props, ctx) {
     const { attrs, ...data } = ctx
     data.attrs = attrs
-    const previewText = formaters[props.type](props.value, props.format, props.default)
+    const previewText = formatters[props.type](props.value, props.format, props.default)
     return function() {
       return h('span', data, [previewText])
     }

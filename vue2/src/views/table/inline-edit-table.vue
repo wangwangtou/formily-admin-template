@@ -139,9 +139,7 @@ export default {
             }
           }
         }
-      },
-
-      oldList: []
+      }
     }
   }
 }
