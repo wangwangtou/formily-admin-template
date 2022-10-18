@@ -71,7 +71,7 @@ const formatters: FormatterType = {
 const InputNative = 'input'
 const AdminTitle = 'div'
 
-interface CommonComponentProps {
+export interface CommonComponentProps {
   className: string,
   style: React.CSSProperties | string
 }
@@ -81,7 +81,7 @@ const getStyle = (style: React.CSSProperties | string) : React.CSSProperties => 
   return style
 }
 
-interface FormatPreviewProps {
+export interface FormatPreviewProps {
   type: string,
   format: any,
   default: string,
@@ -146,7 +146,7 @@ const Tooltip = connect(ATooltip, mapProps((props: any) => {
 }))
 const Rate = ARate // observer(ARate)
 
-interface DropdownProps {
+export interface DropdownProps {
   title: string,
   wrapItem: boolean,
   dropdownClass: string,
@@ -177,7 +177,7 @@ const getPaginationDefault = () => {
   return { current: 1, size: 10 }
 }
 
-interface PaginationProps {
+export interface PaginationProps {
   value?: { current: number, size: number },
   onChange: ({ current, size }) => void
 }

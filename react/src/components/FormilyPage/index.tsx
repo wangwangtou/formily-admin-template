@@ -9,7 +9,9 @@ import {  } from './transformComponent'
 import * as AdminTemplateScope from './adminTemplateScope'
 
 import { ISchema } from '@formily/json-schema'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
+
+import settings from '@/settings'
 
 export interface DesignablePage {
     form: {
@@ -57,6 +59,8 @@ export const FormilyPage: React.FunctionComponent<FormilyPageProps> = ({ schema,
     ...AdminTemplateScope,
     ...scope,
   }
+  const location = useLocation()
+  const returnPath = location.pathname + location.search
   return (
     <FormProvider form={form}>
       {before}
@@ -64,7 +68,7 @@ export const FormilyPage: React.FunctionComponent<FormilyPageProps> = ({ schema,
       {children}
       <FormConsumer>
         {form => (
-          schemaKey ? <NavLink to={'/designable?key=' + schemaKey}>编辑</NavLink> : null
+          settings.showSchemaEditBtn && schemaKey ? <NavLink to={'/designable?key=' + schemaKey + '&returnPath=' + encodeURIComponent(returnPath)}>编辑</NavLink> : null
         )}
       </FormConsumer>
       {after}

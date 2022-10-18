@@ -8,6 +8,24 @@ import TableDragTable from './table/drag-table'
 import TableDynamicTable from './table/dynamic-table'
 import TableInlineEditTable from './table/inline-edit-table'
 
+export const Store = {
+  Dashboard,
+  ExampleList,
+  ExampleCreate,
+  ExampleEdit,
+  Login,
+  TableComplexTable,
+  TableComplexTableAdd,
+  TableComplexTableEdit,
+  TableDragTable,
+  TableDynamicTable,
+  TableInlineEditTable,
+
+  save(name, data) {
+    Store[name] = data
+  }
+}
+
 export {
   Dashboard,
   ExampleList,

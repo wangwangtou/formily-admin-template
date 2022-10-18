@@ -8,7 +8,8 @@ import { StatusTag } from './components/StatusTag'
 import { untracked, raw } from '@formily/reactive'
 import { FormDialog } from '@formily/antd'
 
-import page, { add, edit } from 'formily/views/table/complex-table'
+import { Store } from 'formily/views'
+// import page, { add, edit } from 'formily/views/table/complex-table'
 
 import { Tag, message, notification } from 'antd'
 
@@ -16,7 +17,7 @@ import { fetchList, createArticle } from '@/api/article'
 
 export const TableComplex: React.FunctionComponent = () => {
   const { schema, components, scope } = {
-    schema: page,
+    schema: Store.TableComplexTable,
     components: {
       RankCount,
       StatusTag,
@@ -58,7 +59,7 @@ export const TableComplex: React.FunctionComponent = () => {
         onOpenAddFormDialog: form => {
           const opt = { scope: scope, components: components }
           return function onOpenAddFormDialog() {
-            FormDialog('Add', getFormDialogComponent(add, opt))
+            FormDialog('Add', getFormDialogComponent(Store.TableComplexTableAdd, opt))
               .forOpen((payload, next) => {
                 next({
                   initialValues: {
@@ -98,7 +99,7 @@ export const TableComplex: React.FunctionComponent = () => {
           const opt = { scope: scope, components: components }
           return function onOpenEditFormDialog() {
             const row = field.query('..').value()[field.index]
-            FormDialog('Edit', getFormDialogComponent(edit, opt))
+            FormDialog('Edit', getFormDialogComponent(Store.TableComplexTableEdit, opt))
               .forOpen((payload, next) => {
                 next({
                   initialValues: {
@@ -168,7 +169,7 @@ export const TableComplex: React.FunctionComponent = () => {
   }
   return (
     <div className="app-container">
-      <FormilyPage schema={schema} components={components} scope={scope} schemaKey="TableComplex" />
+      <FormilyPage schema={schema} components={components} scope={scope} schemaKey="TableComplexTable" />
     </div>
   )
 }

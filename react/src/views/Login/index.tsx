@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Button, Modal } from 'antd'
 import { FormilyPage } from '@/components'
 import { SocialSign } from './components'
-import schema from 'formily/views/login'
+import { Store } from 'formily/views'
 
 import './style.less'
 
@@ -15,7 +15,7 @@ export const Login: React.FunctionComponent = () => {
         <div className="title-container">
           <h3 className="title">Login Form</h3>
         </div>
-        <FormilyPage schema={schema} schemaKey="Login" />
+        <FormilyPage schema={Store.Login} schemaKey="Login" />
         <div style={{position: "relative"}}>
           <div className="tips">
             <span>Username : admin</span>

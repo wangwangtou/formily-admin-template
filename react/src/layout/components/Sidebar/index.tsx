@@ -34,12 +34,12 @@ export const Sidebar: React.FunctionComponent<SidebarProps> = ({  }) => {
   const location = useLocation()
   const resolvePath = (routePath, basePath) => {
     if (isExternal(routePath)) {
-      return routePath
+      return { path: routePath, external: true }
     }
     if (isExternal(basePath)) {
-      return basePath
+      return { path: basePath, external: true }
     }
-    return path.resolve(basePath || '', routePath)
+    return { path: path.resolve(basePath || '', routePath), external: false }
   }
   return (
     <div className={"sidebar-container " + (settingState.sidebarLogo ? 'has-logo' : '')}>
@@ -70,27 +70,27 @@ export const Sidebar: React.FunctionComponent<SidebarProps> = ({  }) => {
             })
             if (showingChildren.length <= 1) {
               onlyOneChild = onlyOneChild || { ...route, path: '', noShowingChildren: true }
-              const itemPath = resolvePath(onlyOneChild.path, route.path)
+              const { path: itemPath, external } = resolvePath(onlyOneChild.path, route.path)
               return {
                 key: itemPath,
                 // title: onlyOneChild.meta?.title,
-                label: (<NavLink to={itemPath}>{onlyOneChild.meta?.title}</NavLink>),
+                label: (external ? <a href={itemPath} target="_blank" >{onlyOneChild.meta?.title}</a> : <NavLink to={itemPath}>{onlyOneChild.meta?.title}</NavLink>),
                 icon: <MenuIcon icon={onlyOneChild.meta?.icon} />,
               }
             }
-            const itemPath = resolvePath(route.path, '')
+            const { path: itemPath, external } = resolvePath(route.path, '')
             return {
               key: itemPath,
               // title: route.meta?.title,
-              label: (<NavLink to={itemPath}>{route.meta?.title}</NavLink>),
+              label: (external ? <a href={itemPath} target="_blank" >{route.meta?.title}</a> : <NavLink to={itemPath}>{route.meta?.title}</NavLink>),
               icon: <MenuIcon icon={route.meta?.icon} />,
               theme: 'dark',
               children: showingChildren.map(child => {
-                const itemPath = resolvePath(child.path, route.path)
+                const { path: itemPath, external } = resolvePath(child.path, route.path)
                 return {
                   key: itemPath,
                   // title: child.meta?.title,
-                  label: (<NavLink to={itemPath}>{child.meta?.title}</NavLink>),
+                  label: (external ? <a href={itemPath} target="_blank" >{child.meta?.title}</a> : <NavLink to={itemPath}>{child.meta?.title}</NavLink>),
                   icon: <MenuIcon icon={child.meta?.icon} />,
                 }
               })

@@ -4,7 +4,8 @@ import { FormilyPage } from '@/components'
 import { RankCount } from './components/RankCount'
 import { StatusTag } from './components/StatusTag'
 
-import page from 'formily/views/table/inline-edit-table'
+import { Store } from 'formily/views'
+// import page from 'formily/views/table/inline-edit-table'
 
 import { fetchList } from '@/api/article'
 
@@ -103,7 +104,7 @@ export const TableInlineEdit: React.FunctionComponent = () => {
   const {
     schema, components, scope
   } = {
-    schema: page,
+    schema: Store.TableInlineEditTable,
     components: {
       RankCount,
       StatusTag,
@@ -125,7 +126,7 @@ export const TableInlineEdit: React.FunctionComponent = () => {
   }
   return (
     <div className="app-container">
-      <FormilyPage schema={schema} components={components} scope={scope} schemaKey="TableInlineEdit" />
+      <FormilyPage schema={schema} components={components} scope={scope} schemaKey="TableInlineEditTable" />
     </div>
   )
 }

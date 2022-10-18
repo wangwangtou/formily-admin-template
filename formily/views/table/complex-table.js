@@ -38,7 +38,11 @@ const page = {
                   clearable: true,
                   placeholder: 'Imp'
                 },
-                enum: [1, 2, 3]
+                enum: [
+                  { label: "1", value: 1 }, 
+                  { label: "2", value: 2 }, 
+                  { label: "3", value: 3 }, 
+                ]
               },
               type: {
                 type: 'string',
@@ -370,7 +374,7 @@ const page = {
         }
       },
       pagination: {
-        type: 'object',
+        // type: 'object',
         default: { current: 1, size: 20 },
         'x-decorator': 'Container',
         'x-decorator-props': {

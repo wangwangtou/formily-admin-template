@@ -22,17 +22,22 @@ const page = {
         'x-designable-id': 'jhq46xcypq0',
         'x-index': 0
       },
-      'lineChart': {
+      'row1': {
         'type': 'void',
-        'x-decorator': 'Row',
-        'x-component': 'LineChart',
-        'x-component-props': {
-          'chart-data': {
-            expectedData: [],
-            actualData: []
+        'x-component': 'Row',
+        'properties': {
+          'lineChart': {
+            'type': 'void',
+            'x-component': 'LineChart',
+            'x-component-props': {
+              'chart-data': {
+                expectedData: [],
+                actualData: []
+              }
+            },
           }
         },
-        'x-decorator-props': {
+        'x-component-props': {
           style: {
             background: '#fff', padding: '16px 16px 0', marginBottom: '32px'
           }
@@ -47,37 +52,52 @@ const page = {
           gutter: 32
         },
         properties: {
-          'raddarChart': {
+          col1: {
             'type': 'void',
-            'x-decorator': 'Col',
-            'x-component': 'RaddarChart',
-            'x-component-props': {
+            'x-component': 'Col',
+            properties: {
+              'raddarChart': {
+                'type': 'void',
+                'x-component': 'RaddarChart',
+                'x-component-props': {
+                },
+              }
             },
-            'x-decorator-props': {
+            'x-component-props': {
               xs: 24, sm: 24, lg: 8
             },
             'x-designable-id': 'zrddcpko5dk1',
             'x-index': 1
           },
-          'pieChart': {
+          col2: {
             'type': 'void',
-            'x-decorator': 'Col',
-            'x-component': 'PieChart',
-            'x-component-props': {
+            'x-component': 'Col',
+            properties: {
+              'pieChart': {
+                'type': 'void',
+                'x-component': 'PieChart',
+                'x-component-props': {
+                },
+              }
             },
-            'x-decorator-props': {
+            'x-component-props': {
               xs: 24, sm: 24, lg: 8
             },
             'x-designable-id': 'zrddcpko5dk2',
             'x-index': 2
           },
-          'barChart': {
+          col3: {
             'type': 'void',
-            'x-decorator': 'Col',
-            'x-component': 'BarChart',
-            'x-component-props': {
+            'x-component': 'Col',
+            properties: {
+              'barChart': {
+                'type': 'void',
+                'x-component': 'BarChart',
+                'x-component-props': {
+                },
+              }
             },
-            'x-decorator-props': {
+            'x-component-props': {
               xs: 24, sm: 24, lg: 8
             },
             'x-designable-id': 'zrddcpko5dk3',
@@ -94,13 +114,18 @@ const page = {
           gutter: 8
         },
         properties: {
-          'transactionTable': {
+          col1: {
             'type': 'void',
-            'x-decorator': 'Col',
-            'x-component': 'TransactionTable',
-            'x-component-props': {
+            'x-component': 'Col',
+            properties: {
+              'transactionTable': {
+                'type': 'void',
+                'x-component': 'TransactionTable',
+                'x-component-props': {
+                },
+              }
             },
-            'x-decorator-props': {
+            'x-component-props': {
               xs: 24, sm: 24, md: 24,
               lg: 12, xl: 12,
               style: { paddingRight: '8px', marginBottom: '30px' }
@@ -108,13 +133,18 @@ const page = {
             'x-designable-id': 'zrddcpko5dk5',
             'x-index': 1
           },
-          'todoList': {
+          col2: {
             'type': 'void',
-            'x-decorator': 'Col',
-            'x-component': 'TodoList',
-            'x-component-props': {
+            'x-component': 'Col',
+            properties: {
+              'todoList': {
+                'type': 'void',
+                'x-component': 'TodoList',
+                'x-component-props': {
+                },
+              }
             },
-            'x-decorator-props': {
+            'x-component-props': {
               xs: 24, sm: 24, md: 12,
               lg: 6, xl: 6,
               style: { marginBottom: '30px' }
@@ -122,13 +152,18 @@ const page = {
             'x-designable-id': 'zrddcpko5dk6',
             'x-index': 2
           },
-          'boxCard': {
+          col3: {
             'type': 'void',
-            'x-decorator': 'Col',
-            'x-component': 'BoxCard',
-            'x-component-props': {
+            'x-component': 'Col',
+            properties: {
+              'boxCard': {
+                'type': 'void',
+                'x-component': 'BoxCard',
+                'x-component-props': {
+                },
+              }
             },
-            'x-decorator-props': {
+            'x-component-props': {
               xs: 24, sm: 24, md: 12,
               lg: 6, xl: 6,
               style: { marginBottom: '30px' }

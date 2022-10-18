@@ -10,7 +10,12 @@ interface PanelGroupProps {
   onHandleSetLineChartData?: (item: any) => void
 }
 
-export const PanelGroup: React.FunctionComponent<PanelGroupProps> = ({ dataSource, onHandleSetLineChartData }) => {
+export const PanelGroup: React.FunctionComponent<PanelGroupProps> = ({ dataSource = [
+  { icon: '', title: 'Item 1', value: 0 },
+  { icon: '', title: 'Item 2', value: 0 },
+  { icon: '', title: 'Item 3', value: 0 },
+  { icon: '', title: 'Item 4', value: 0 },
+], onHandleSetLineChartData }) => {
   return (
     <Row gutter={40} className="panel-group">
       {dataSource.map((item, index) => (

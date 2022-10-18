@@ -3,7 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { FormilyPage } from '@/components'
 import { onFormReact } from '@formily/core'
 
-import page from 'formily/views/example/edit'
+// import page from 'formily/views/example/edit'
+import { Store } from 'formily/views'
 
 import { fetchArticle } from '@/api/article'
 import { scope, components } from './example'
@@ -21,7 +22,7 @@ export const ExampleEdit: React.FunctionComponent = () => {
   return (
     <div className="createPost-container">
       <FormilyPage
-        schema={page} components={components} scope={scope}
+        schema={Store.ExampleEdit} components={components} scope={scope}
         effects={() => {
           onFormReact(async form => {
             const id = params.id

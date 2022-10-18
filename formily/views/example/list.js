@@ -177,7 +177,7 @@ const page = {
         }
       },
       pagination: {
-        type: 'object',
+        // type: 'object',
         default: { current: 1, size: 10 },
         'x-decorator': 'Container',
         'x-decorator-props': {

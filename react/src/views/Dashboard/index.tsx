@@ -15,14 +15,14 @@ import {
   TodoList,
   BoxCard,
 } from './components'
-import page from 'formily/views/dashboard/index'
+import { Store } from 'formily/views'
 
 import './style.less'
 
 export const Dashboard: React.FunctionComponent = () => {
 
   const { schema, components, scope } = {
-    schema: page,
+    schema: Store.Dashboard,
     components: {
       PanelGroup,
       LineChart,
@@ -78,14 +78,14 @@ export const Dashboard: React.FunctionComponent = () => {
             field.setComponentProps({
               dataSource,
               onHandleSetLineChartData: function({ lineData }) {
-                field.query('.lineChart').take(chartField => {
+                field.query('row1.lineChart').take(chartField => {
                   chartField.setComponentProps({
                     chartData: lineData
                   })
                 })
               }
             })
-            field.query('.lineChart').take(chartField => {
+            field.query('row1.lineChart').take(chartField => {
               chartField.setComponentProps({
                 chartData: dataSource[0] ? dataSource[0].lineData : { expectedData: [], actualData: [] }
               })

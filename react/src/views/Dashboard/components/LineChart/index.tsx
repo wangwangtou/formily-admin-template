@@ -12,7 +12,7 @@ interface LineChartProps {
   }
 }
 
-const setOptions = (chart: React.RefObject<any>, { chartData }: LineChartProps & ChartProps) => {
+const setOptions = (chart: React.RefObject<any>, { chartData = { expectedData: [], actualData: [] } }: LineChartProps & ChartProps) => {
   chart.current && chart.current.setOption({
     xAxis: {
       data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],

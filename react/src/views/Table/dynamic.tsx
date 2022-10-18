@@ -1,11 +1,12 @@
 import React from 'react'
 import { FormilyPage } from '@/components'
 
-import page from 'formily/views/table/dynamic-table'
+import { Store } from 'formily/views'
+// import page from 'formily/views/table/dynamic-table'
 
 export const TableDynamic: React.FunctionComponent = () => {
   const { schema, components, scope } = {
-    schema: page,
+    schema: Store.TableDynamicTable,
     components: {
       Container: 'div'
     },
@@ -54,7 +55,7 @@ export const TableDynamic: React.FunctionComponent = () => {
   }
   return (
     <div className="app-container">
-      <FormilyPage schema={schema} components={components} scope={scope} schemaKey="TableDynamic" />
+      <FormilyPage schema={schema} components={components} scope={scope} schemaKey="TableDynamicTable" />
     </div>
   )
 }

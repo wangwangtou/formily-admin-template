@@ -4,7 +4,8 @@ import { FormilyPage } from '@/components'
 import { RankCount } from './components/RankCount'
 import { StatusTag } from './components/StatusTag'
 
-import page from 'formily/views/table/drag-table'
+import { Store } from 'formily/views'
+// import page from 'formily/views/table/drag-table'
 
 import { Tag, message, notification, Input } from 'antd'
 import { FormConsumer, Field } from '@formily/react'
@@ -17,7 +18,7 @@ export const TableDrag: React.FunctionComponent = () => {
   const {
     schema, components, scope
   } = {
-    schema: page,
+    schema: Store.TableDragTable,
     components: {
       RankCount,
       StatusTag
@@ -40,7 +41,7 @@ export const TableDrag: React.FunctionComponent = () => {
   }
   return (
     <div className="app-container">
-      <FormilyPage schema={schema} components={components} scope={scope} schemaKey="TableDrag" >
+      <FormilyPage schema={schema} components={components} scope={scope} schemaKey="TableDragTable" >
         <Field name="oldList" component={[Input, { placeholder: 'Please Input', style: { display: 'none' } }]}></Field>
         <FormConsumer>
           {form => (

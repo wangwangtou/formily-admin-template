@@ -90,6 +90,16 @@ export const asyncRoutes: Route[] = [
       { path: '', element: <ErrorLog />, name: 'ErrorLog', meta: { title: 'Error Log', icon: 'bug' } },
     ]
   },
+  {
+    path: 'external-link',
+    element: <Layout />,
+    children: [
+      {
+        path: 'https://github.com/wangwangtou/formily-admin-template',
+        meta: { title: 'External Link', icon: 'link' }
+      }
+    ]
+  },
   { path: '*', element: <Navigate to="404"/>, hidden: true },
 ]
 

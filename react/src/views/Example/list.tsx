@@ -4,7 +4,8 @@ import { FormilyPage } from '@/components'
 import { RankCount } from '../Table/components/RankCount'
 import { StatusTag } from '../Table/components/StatusTag'
 
-import page from 'formily/views/example/list'
+import { Store } from 'formily/views'
+// import page from 'formily/views/example/list'
 import { fetchList } from '@/api/article'
 import { NavLink } from 'react-router-dom'
 
@@ -12,7 +13,7 @@ export const ExampleList: React.FunctionComponent = () => {
   const {
     schema, components, scope
   } = {
-    schema: page,
+    schema: Store.ExampleList,
     components: {
       RankCount,
       StatusTag,
