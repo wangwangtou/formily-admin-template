@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { observer } from '@formily/react'
+import { observer, useField } from '@formily/react'
 import { createBehavior, createResource } from '@designable/core'
 import { DnFC, DroppableWidget, useNodeIdProps, useTreeNode } from '@designable/react'
 import { createFieldSchema } from '@designable/formily-antd/esm/components/Field'
@@ -162,9 +162,10 @@ export const getValueRenderComponent = (Component, name, titleLocale = {
 export const wrapDefaultInput = (Component: DnFC) => {
   const DnComponent: DnFC<React.ComponentProps<typeof Component>>
   = observer((props) => {
+    const field = useField();
     const node = useTreeNode()
     const nodeId = useNodeIdProps()
-    if (node.props['x-read-pretty']) {
+    if (field?.pattern === 'readPretty') {
       return (
         <div {...nodeId} className="dn-input">
           <Component {...props}/>

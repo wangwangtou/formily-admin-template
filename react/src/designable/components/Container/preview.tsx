@@ -69,3 +69,5 @@ Container.Resource = createResource(
     ]
   }
 )
+
+export const AdminTitle = Container
