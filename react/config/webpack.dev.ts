@@ -34,6 +34,7 @@ for (const key in baseConfig.entry) {
 export default {
   ...baseConfig,
   plugins: [
+    ...baseConfig.plugins,
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',
       chunkFilename: '[id].[hash].css',
@@ -43,6 +44,11 @@ export default {
         filename: 'index.html',
         template: path.resolve(__dirname, './template.ejs'),
         chunk: ['main'],
+      },
+      {
+        filename: 'editor.html',
+        template: path.resolve(__dirname, './template.ejs'),
+        chunk: ['editor'],
       },
     ]),
     new webpack.HotModuleReplacementPlugin(),

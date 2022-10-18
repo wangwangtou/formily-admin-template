@@ -1,12 +1,15 @@
 import path from 'path'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import webpack from 'webpack'
 // import autoprefixer from 'autoprefixer'
 //import { getThemeVariables } from 'antd/dist/theme'
+
 
 const getWorkspaceAlias = () => {
   const results = {
     '@': path.resolve(__dirname, '../src'),
-    'formily': path.resolve(__dirname, '../../formily')
+    'formily': path.resolve(__dirname, '../../formily'),
+    // './node_modules/@designable/formily-antd/esm/components/Field/shared.js$': path.resolve(__dirname, '../src/designable/field_shared'),
   }
   return results
 }
@@ -20,6 +23,7 @@ export default {
   },
   entry: {
     main: path.resolve(__dirname, '../src/main'),
+    editor: path.resolve(__dirname, '../src/editor'),
   },
   output: {
     path: path.resolve(__dirname, '../build'),
@@ -121,4 +125,38 @@ export default {
       },
     ],
   },
+  plugins: [
+    {
+      apply: (compiler) => {
+        const pluginName = 'es'
+        compiler.hooks.normalModuleFactory.tap(
+          pluginName,
+          (nmf: webpack.compilation.NormalModuleFactory) => {
+            nmf.hooks.beforeResolve.tap(
+              pluginName,
+              mod => {
+                const path1 = '@designable/formily-antd'
+                const path2 = path1.replace(/\//g, '\\')
+                const path3 = '@designable/formily-antd/esm/components/Field/shared'
+                const path4 = path3.replace(/\//g, '\\')
+                // if (mod.request.indexOf('formily-antd') >= 0) {
+                //   debugger
+                // }
+                if ((
+                  (mod.context.indexOf(path1) >= 0 || mod.context.indexOf(path2) >= 0)
+                  && (
+                    path.resolve(mod.context, mod.request).indexOf(path3) >= 0
+                    || path.resolve(mod.context, mod.request).indexOf(path4) >= 0
+                    )
+                ) || mod.request.indexOf(path3) == 0 || mod.request.indexOf(path4) == 0) {
+                  console.log(mod)
+                  mod.request = path.resolve(__dirname, '../src/designable/field_shared')
+                }
+              }
+            )
+          }
+        )
+      }
+    }
+  ]
 }
