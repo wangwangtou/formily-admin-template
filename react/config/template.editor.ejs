@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+  <title>
+    Vue Admin Template
+  </title>
+  <style>
+    html,body{
+      user-select: none;
+      -webkit-user-select: none;
+    }
+  </style>
+<%= htmlWebpackPlugin.files.css.map(css => "<link href=\"" + htmlWebpackPlugin.files.publicPath + css + "\" rel=\"stylesheet\">").join("") %></head>
+<body>
+  <div id="app">
+  </div>
+  <!-- importmap 必须用 ./  /  // http:// 开头 -->
+<script type="systemjs-importmap">
+  {
+    "imports": {
+      "editor": "<%= (htmlWebpackPlugin.files.publicPath || './') + htmlWebpackPlugin.files.chunks.editor.entry %>"
+    }
+  }
+</script>
+<%= htmlWebpackPlugin.files.js.filter(js => js != htmlWebpackPlugin.files.chunks.editor.entry).map(js => "<script src=\"" + htmlWebpackPlugin.files.publicPath + js + "\" ></script>").join("") %>
+<script src="//unpkg.com/systemjs/dist/system.js"></script>
+<script>
+//  System.import('editor').then(function(module) {
+//    let React = module.React
+//    let ReactDOM = module.ReactDOM
+//    let Editor = module.Editor
+//
+//    ReactDOM.render(React.createElement(Editor), document.getElementById('app'))
+//  })
+</script>
+</body>

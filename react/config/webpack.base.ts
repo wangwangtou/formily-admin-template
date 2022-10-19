@@ -14,6 +14,39 @@ const getWorkspaceAlias = () => {
   return results
 }
 
+const replaceModulePlugin = {
+  apply: (compiler) => {
+    const pluginName = 'replaceModule'
+    compiler.hooks.normalModuleFactory.tap(
+      pluginName,
+      (nmf: webpack.compilation.NormalModuleFactory) => {
+        nmf.hooks.beforeResolve.tap(
+          pluginName,
+          mod => {
+            const path1 = '@designable/formily-antd'
+            const path2 = path1.replace(/\//g, '\\')
+            const path3 = '@designable/formily-antd/esm/components/Field/shared'
+            const path4 = path3.replace(/\//g, '\\')
+            // if (mod.request.indexOf('formily-antd') >= 0) {
+            //   debugger
+            // }
+            if ((
+              (mod.context.indexOf(path1) >= 0 || mod.context.indexOf(path2) >= 0)
+              && (
+                path.resolve(mod.context, mod.request).indexOf(path3) >= 0
+                || path.resolve(mod.context, mod.request).indexOf(path4) >= 0
+                )
+            ) || mod.request.indexOf(path3) == 0 || mod.request.indexOf(path4) == 0) {
+              // console.log(mod)
+              mod.request = path.resolve(__dirname, '../src/designable/field_shared')
+            }
+          }
+        )
+      }
+    )
+  }
+}
+
 export default {
   mode: 'development',
   devtool: 'inline-source-map', // 嵌入到源文件中
@@ -126,37 +159,6 @@ export default {
     ],
   },
   plugins: [
-    {
-      apply: (compiler) => {
-        const pluginName = 'es'
-        compiler.hooks.normalModuleFactory.tap(
-          pluginName,
-          (nmf: webpack.compilation.NormalModuleFactory) => {
-            nmf.hooks.beforeResolve.tap(
-              pluginName,
-              mod => {
-                const path1 = '@designable/formily-antd'
-                const path2 = path1.replace(/\//g, '\\')
-                const path3 = '@designable/formily-antd/esm/components/Field/shared'
-                const path4 = path3.replace(/\//g, '\\')
-                // if (mod.request.indexOf('formily-antd') >= 0) {
-                //   debugger
-                // }
-                if ((
-                  (mod.context.indexOf(path1) >= 0 || mod.context.indexOf(path2) >= 0)
-                  && (
-                    path.resolve(mod.context, mod.request).indexOf(path3) >= 0
-                    || path.resolve(mod.context, mod.request).indexOf(path4) >= 0
-                    )
-                ) || mod.request.indexOf(path3) == 0 || mod.request.indexOf(path4) == 0) {
-                  console.log(mod)
-                  mod.request = path.resolve(__dirname, '../src/designable/field_shared')
-                }
-              }
-            )
-          }
-        )
-      }
-    }
+    replaceModulePlugin
   ]
 }

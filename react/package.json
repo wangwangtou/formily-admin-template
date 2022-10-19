@@ -14,6 +14,7 @@
   },
   "scripts": {
     "build": "webpack-cli --config config/webpack.prod.ts",
+    "build:editor": "webpack-cli --config config/webpack.editor.ts",
     "dev": "npm run start",
     "start": "webpack-dev-server --config config/webpack.dev.ts"
   },

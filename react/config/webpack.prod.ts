@@ -18,8 +18,8 @@ const createPages = (pages) => {
 export default {
   ...baseConfig,
   mode: 'production',
-  ...baseConfig.plugins,
   plugins: [
+    ...baseConfig.plugins,
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',
       chunkFilename: '[id].[hash].css',

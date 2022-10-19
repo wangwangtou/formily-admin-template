@@ -6,7 +6,23 @@ import { createFieldSchema } from '@designable/formily-antd/esm/components/Field
 import { getIcon } from '../../icons'
 import { RouterLinkSchema } from '../../schemas'
 import { observer } from '@formily/react'
-import { NavLink } from 'react-router-dom'
+
+// 不使用 react-router 里的NavLink， 避免与 vue 的 hash 冲突
+const NavLink = (props) => {
+  return (
+    <a {...props} href="javascript:;" onClick={
+      evt => {
+        let hash = ''
+        if (typeof props.to == 'string') {
+          hash = props.to
+        } else if (props.to && props.to.path) {
+          hash = props.to.path
+        }
+        location.hash = hash
+      }
+    }/>
+  )
+}
 
 export const RouterLink: DnFC
 = observer((props) => {
