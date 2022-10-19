@@ -40,7 +40,7 @@ const page = {
               },
               properties: {
                 id: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'string',
                   'x-component': 'Input'
                 }
@@ -56,7 +56,7 @@ const page = {
               },
               properties: {
                 timestamp: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'number',
                   'x-component': 'FormatPreview',
                   'x-component-props': {
@@ -76,7 +76,7 @@ const page = {
               },
               properties: {
                 author: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'string',
                   'x-component': 'Input'
                 }
@@ -91,7 +91,7 @@ const page = {
               },
               properties: {
                 importance: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'number',
                   'x-component': 'RankCount'
                 }
@@ -107,7 +107,7 @@ const page = {
             //   },
             //   properties: {
             //     pageviews: {
-            //       'x-read-pretty': true,
+            //       'x-pattern': 'readPretty',
             //       type: 'string',
             //       'x-component': 'Input'
             //     }
@@ -123,7 +123,7 @@ const page = {
               },
               properties: {
                 status: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'string',
                   'x-component': 'StatusTag'
                 }
@@ -138,7 +138,7 @@ const page = {
               },
               properties: {
                 title: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'string',
                   'x-decorator': 'RouterLink',
                   'x-decorator-props': {

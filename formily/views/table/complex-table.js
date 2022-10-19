@@ -152,7 +152,7 @@ const page = {
               },
               properties: {
                 id: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'string',
                   'x-component': 'Input'
                 }
@@ -168,7 +168,7 @@ const page = {
               },
               properties: {
                 timestamp: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'number',
                   'x-component': 'FormatPreview',
                   'x-component-props': {
@@ -187,7 +187,7 @@ const page = {
               },
               properties: {
                 title: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'string',
                   // 'x-decorator': 'Link',
                   // 'x-decorator-props': {
@@ -203,7 +203,7 @@ const page = {
                   'x-content': '{{ $self.value }}'
                 },
                 type: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'string',
                   'x-decorator': 'Tag',
                   'x-decorator-props': {
@@ -231,7 +231,7 @@ const page = {
               },
               properties: {
                 author: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'string',
                   'x-component': 'Input'
                 }
@@ -250,7 +250,7 @@ const page = {
               ],
               properties: {
                 reviewer: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'string',
                   'x-component': 'Input',
                   'x-component-props': {
@@ -268,7 +268,7 @@ const page = {
               },
               properties: {
                 importance: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'number',
                   'x-component': 'RankCount'
                 }
@@ -284,7 +284,7 @@ const page = {
               },
               properties: {
                 pageviews: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'string',
                   'x-component': 'Input'
                 }
@@ -300,7 +300,7 @@ const page = {
               },
               properties: {
                 status: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'string',
                   'x-component': 'StatusTag'
                 }

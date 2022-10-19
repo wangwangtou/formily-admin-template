@@ -47,7 +47,7 @@ const page = {
         'x-reactions': [
           '{{ PAGE.useTableData() }}'
         ],
-        'x-read-pretty': true,
+        'x-pattern': 'readPretty',
         items: {
           'type': 'object',
           'properties': {
@@ -162,7 +162,7 @@ const page = {
         'x-reactions': [
           '{{ PAGE.useTableData() }}'
         ],
-        'x-read-pretty': true,
+        'x-pattern': 'readPretty',
         items: {
           'type': 'object',
           'properties': {

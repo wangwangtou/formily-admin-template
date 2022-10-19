@@ -35,7 +35,7 @@
               },
               properties: {
                 id: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'string',
                   'x-component': 'Input'
                 }
@@ -51,7 +51,7 @@
               },
               properties: {
                 timestamp: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'number',
                   'x-component': 'FormatPreview',
                   'x-component-props': {
@@ -71,7 +71,7 @@
               },
               properties: {
                 author: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'string',
                   'x-component': 'Input'
                 }
@@ -86,7 +86,7 @@
               },
               properties: {
                 importance: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'number',
                   'x-component': 'RankCount'
                 }
@@ -102,7 +102,7 @@
             //   },
             //   properties: {
             //     pageviews: {
-            //       'x-read-pretty': true,
+            //       'x-pattern': 'readPretty',
             //       type: 'string',
             //       'x-component': 'Input'
             //     }
@@ -118,7 +118,7 @@
               },
               properties: {
                 status: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'string',
                   'x-component': 'StatusTag'
                 }
@@ -133,7 +133,7 @@
               },
               properties: {
                 title: {
-                  'x-read-pretty': true,
+                  'x-pattern': 'readPretty',
                   type: 'string',
                   'x-component': 'PAGE.InputWithCancel'
                 }
