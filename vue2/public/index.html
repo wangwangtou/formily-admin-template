@@ -1,22 +1,35 @@
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link href="./designable-system/playground.9eb305a5b7b6d638da87.css" rel="stylesheet"></head>
-    <title>Vue App2</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="systemjs-importmap">
-      {
-        "imports": {
-          "playground": "./designable-system/playground.9eb305a5b7b6d638da87.bundle.js"
-        }
-      }
-    </script>
+<head>
+  <title>
+    Vue Admin Template
+  </title>
+  <style>
+    html,body{
+      user-select: none;
+      -webkit-user-select: none;
+    }
+  </style>
+<link href="editor/editor.system.css" rel="stylesheet"></head>
+<body>
+  <div id="app">
+  </div>
+  <!-- importmap 必须用 ./  /  // http:// 开头 -->
+<script type="systemjs-importmap">
+  {
+    "imports": {
+      "editor": "./editor/editor.system.bundle.js"
+    }
+  }
+</script>
 
-    <script src="https://unpkg.com/systemjs/dist/system.js"></script>
-</html>
+<script src="//unpkg.com/systemjs/dist/system.js"></script>
+<script>
+//  System.import('editor').then(function(module) {
+//    let React = module.React
+//    let ReactDOM = module.ReactDOM
+//    let Editor = module.Editor
+//
+//    ReactDOM.render(React.createElement(Editor), document.getElementById('app'))
+//  })
+</script>
+</body>
