@@ -1,12 +1,13 @@
 <template>
   <div class="createPost-container">
-    <FormilyPage ref="page" :schema="schema" :components="components" :scope="scope" />
+    <FormilyPage ref="page" :schema="schema" :components="components" :scope="scope" schemaKey="ExampleCreate" />
   </div>
 </template>
 
 <script>
 import FormilyPage from '@/components/FormilyPage'
-import page from 'formily/views/example/create'
+import { Store } from 'formily/views'
+// import page from 'formily/views/example/create'
 import { scope, components } from './example'
 
 export default {
@@ -14,7 +15,7 @@ export default {
   components: { FormilyPage },
   data() {
     return {
-      schema: page.schema,
+      schema: Store.ExampleCreate,
       components,
       scope
     }

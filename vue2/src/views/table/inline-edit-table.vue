@@ -1,12 +1,13 @@
 <template>
   <div class="app-container">
-    <FormilyPage ref="page" :schema="schema" :components="components" :scope="scope" />
+    <FormilyPage ref="page" :schema="schema" :components="components" :scope="scope" schemaKey="TableInlineEditTable" />
   </div>
 </template>
 
 <script>
 import FormilyPage from '@/components/FormilyPage'
-import page from 'formily/views/table/inline-edit-table'
+import { Store } from 'formily/views'
+// import page from 'formily/views/table/inline-edit-table'
 
 import RankCount from './components/RankCount'
 import StatusTag from './components/StatusTag'
@@ -121,7 +122,7 @@ export default {
   components: { FormilyPage },
   data() {
     return {
-      schema: page.schema,
+      schema: Store.TableInlineEditTable,
       components: {
         RankCount,
         StatusTag,

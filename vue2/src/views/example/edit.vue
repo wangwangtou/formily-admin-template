@@ -1,12 +1,12 @@
 <template>
   <div class="createPost-container">
-    <FormilyPage ref="page" :schema="schema" :components="components" :scope="scope" :effects="effects" />
+    <FormilyPage ref="page" :schema="schema" :components="components" :scope="scope" :effects="effects" schemaKey="ExampleEdit" />
   </div>
 </template>
 
 <script>
 import FormilyPage from '@/components/FormilyPage'
-import page from 'formily/views/example/edit'
+import { Store } from 'formily/views'
 import { scope, components } from './example'
 
 import { onFormReact } from '@formily/core'
@@ -18,7 +18,7 @@ export default {
   components: { FormilyPage },
   data() {
     return {
-      schema: page.schema,
+      schema: Store.ExampleEdit,
       components,
       scope,
       effects: () => {

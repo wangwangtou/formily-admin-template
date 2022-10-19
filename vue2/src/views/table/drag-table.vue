@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <FormilyPage ref="page" :schema="schema" :components="components" :scope="scope">
+    <FormilyPage ref="page" :schema="schema" :components="components" :scope="scope" schemaKey="TableDragTable">
       <FormConsumer>
         <template #default="{ form }">
           <div class="show-d">
@@ -18,7 +18,8 @@
 <script>
 import { FormConsumer } from '@formily/vue'
 import FormilyPage from '@/components/FormilyPage'
-import page from 'formily/views/table/drag-table'
+import { Store } from 'formily/views'
+// import page from 'formily/views/table/drag-table'
 
 import RankCount from './components/RankCount'
 import StatusTag from './components/StatusTag'
@@ -31,7 +32,7 @@ export default {
   data() {
     const self = this
     return {
-      schema: page.schema,
+      schema: Store.TableDragTable,
       components: {
         RankCount,
         StatusTag

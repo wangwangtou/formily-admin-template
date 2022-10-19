@@ -9,6 +9,12 @@ module.exports = {
 
   /**
    * @type {boolean} true | false
+   * @description Whether show the formily page edit button
+   */
+  showSchemaEditBtn: true,
+
+  /**
+   * @type {boolean} true | false
    * @description Whether need tagsView
    */
   tagsView: true,

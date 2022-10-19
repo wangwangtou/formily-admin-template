@@ -10,7 +10,7 @@
 <script>
 import FormilyPage from '@/components/FormilyPage'
 import { wrapComponent } from '@/components/FormilyPage/transformComponent'
-import page from 'formily/views/dashboard/index'
+import { Store } from 'formily/views'
 
 import GithubCorner from '@/components/GithubCorner'
 import PanelGroup from './components/PanelGroup'
@@ -27,7 +27,7 @@ export default {
   components: { FormilyPage, GithubCorner },
   data() {
     return {
-      schema: page.schema,
+      schema: Store.Dashboard,
       components: {
         PanelGroup,
         LineChart,
@@ -83,14 +83,14 @@ export default {
               field.setComponentProps({
                 dataSource,
                 onHandleSetLineChartData: function({ lineData }) {
-                  field.query('.lineChart').take(chartField => {
+                  field.query('row1.lineChart').take(chartField => {
                     chartField.setComponentProps({
                       chartData: lineData
                     })
                   })
                 }
               })
-              field.query('.lineChart').take(chartField => {
+              field.query('row1.lineChart').take(chartField => {
                 chartField.setComponentProps({
                   chartData: dataSource[0] ? dataSource[0].lineData : { expectedData: [], actualData: [] }
                 })

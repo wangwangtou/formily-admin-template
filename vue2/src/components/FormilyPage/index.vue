@@ -1,11 +1,11 @@
 <template>
   <FormProvider :key="renderKey" :form="form">
     <slot name="before" />
-    <SchemaField :schema="schema" :components="components" :scope="scopeWithAT" />
+    <SchemaField :schema="schema.schema" :components="components" :scope="scopeWithAT" />
     <slot name="default" />
     <FormConsumer>
       <template #default="{ form }">
-        <router-link v-if="schemaKey" :to="'/designable?key=' + schemaKey">编辑</router-link>
+        <router-link v-if="showSchemaEditBtn && schemaKey" :to="'/designable?key=' + schemaKey + '&returnPath=' + returnPath">编辑</router-link>
       </template>
     </FormConsumer>
   </FormProvider>
@@ -19,6 +19,7 @@ import * as FormilyElement from '@formily/element'
 import * as ProjectComponents from './projectComponents'
 import { transformNativeOn } from './transformComponent'
 import * as AdminTemplateScope from './adminTemplateScope'
+import settings from '@/settings'
 
 const { SchemaField } = createSchemaField({
   components: {
@@ -76,7 +77,8 @@ export default {
     })
     return {
       renderKey: 1,
-      form
+      form,
+      showSchemaEditBtn: settings.showSchemaEditBtn
     }
   },
   computed: {
@@ -85,6 +87,14 @@ export default {
         ...AdminTemplateScope,
         ...this.scope
       }
+    },
+    returnPath() {
+      const route = this.$route
+      const getSearch = (query) => {
+        const queryStr = new URLSearchParams(query).toString()
+        return queryStr ? '?' + queryStr : queryStr
+      }
+      return route ? route.path + getSearch(route.query) : ''
     }
   },
   watch: {

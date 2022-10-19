@@ -1,53 +1,38 @@
 <template>
-  <Designable v-if="elKey > 0" :key="elKey" />
+  <div ref='div'></div>
 </template>
 
 <script>
 
-import Designable from '@/components/Designable'
-
-import * as FormilyViews from 'formily/views'
+import { loadModule } from './systemLoader'
+import { Store } from 'formily/views'
 
 export default {
-  name: 'DesignablePage',
-  components: {
-    Designable
-  },
+  name: 'Designable',
   data() {
     return {
-      data: null,
-      seed: 0,
-      elKey: 0
+      _ReactDOM: null
     }
   },
-  computed: {
-    schemaKey() {
-      return this.$route.query.key
-    }
-  },
-  watch: {
-    schemaKey() {
-      if (this.schemaKey) {
-        this.load()
-      } else {
-        this.elKey = 0
+  async mounted() {
+    const { React, ReactDOM, Editor } = await loadModule('editor')
+    this._ReactDOM = ReactDOM
+    const params = this.$route.query
+    ReactDOM.render(React.createElement(Editor, {
+      editKey: params.key,
+      editData: Store[params.key],
+      returnPath: params.returnPath,
+      onSaveData: (data) => {
+        Store.save(params.key || '__draft__', data)
       }
-    }
+    }), this.$refs.div)
   },
-  mounted() {
-    if (this.schemaKey) {
-      this.load()
-    }
-  },
-  methods: {
-    load() {
-      const data = FormilyViews[this.schemaKey] || null
-      localStorage.setItem('formily-schema', JSON.stringify(data))
-      this.elKey = ++this.seed
-    }
+  destroyed() {
+    this._ReactDOM.unmountComponentAtNode(this.$refs.div)
   }
 }
 </script>
 
 <style>
+
 </style>

@@ -33,15 +33,15 @@
 <script>
 import FormilyPage from '@/components/FormilyPage'
 import SocialSign from './components/SocialSignin'
-import page from 'formily/views/login/index'
-// import page from '~formily/views/login/index'
+import { Store } from 'formily/views'
+// import page from 'formily/views/login/index'
 
 export default {
   name: 'Login',
   components: { FormilyPage, SocialSign },
   data() {
     return {
-      schema: page.schema,
+      schema: Store.Login,
       showDialog: false
     }
   },

@@ -1,13 +1,14 @@
 <template>
   <div class="app-container">
-    <FormilyPage ref="page" :schema="schema" :components="components" :scope="scope" />
+    <FormilyPage ref="page" :schema="schema" :components="components" :scope="scope" schemaKey="TableComplexTable" />
   </div>
 </template>
 
 <script>
 import FormilyPage from '@/components/FormilyPage'
 import { getFormDialogComponent } from '@/components/FormilyPage/dialogComponent'
-import page, { add, edit } from 'formily/views/table/complex-table'
+// import page, { add, edit } from 'formily/views/table/complex-table'
+import { Store } from 'formily/views'
 
 import RankCount from '../table/components/RankCount'
 import StatusTag from '../table/components/StatusTag'
@@ -24,7 +25,7 @@ export default {
   components: { FormilyPage },
   data() {
     return {
-      schema: page.schema,
+      schema: Store.TableComplexTable,
       components: {
         RankCount,
         StatusTag,
@@ -67,7 +68,7 @@ export default {
           onOpenAddFormDialog: form => {
             const opt = { scope: this.scope, components: this.components }
             return function onOpenAddFormDialog() {
-              FormDialog('Add', getFormDialogComponent(add, opt))
+              FormDialog('Add', getFormDialogComponent(Store.TableComplexTableAdd, opt))
                 .forOpen((payload, next) => {
                   next({
                     initialValues: {
@@ -107,7 +108,7 @@ export default {
             const opt = { scope: this.scope, components: this.components }
             return function onOpenEditFormDialog() {
               const row = field.query('..').value()[field.index]
-              FormDialog('Edit', getFormDialogComponent(edit, opt))
+              FormDialog('Edit', getFormDialogComponent(Store.TableComplexTableEdit, opt))
                 .forOpen((payload, next) => {
                   next({
                     initialValues: {

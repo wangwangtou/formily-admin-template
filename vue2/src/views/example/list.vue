@@ -1,12 +1,12 @@
 <template>
   <div class="app-container">
-    <FormilyPage ref="page" :schema="schema" :components="components" :scope="scope" />
+    <FormilyPage ref="page" :schema="schema" :components="components" :scope="scope" schemaKey="ExampleList" />
   </div>
 </template>
 
 <script>
 import FormilyPage from '@/components/FormilyPage'
-import page from 'formily/views/example/list'
+import { Store } from 'formily/views'
 
 import RankCount from '../table/components/RankCount'
 import StatusTag from '../table/components/StatusTag'
@@ -18,7 +18,7 @@ export default {
   components: { FormilyPage },
   data() {
     return {
-      schema: page.schema,
+      schema: Store.ExampleList,
       components: {
         RankCount,
         StatusTag,

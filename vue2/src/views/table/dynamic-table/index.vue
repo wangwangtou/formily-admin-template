@@ -1,19 +1,20 @@
 <template>
   <div class="app-container">
-    <FormilyPage :schema="schema" :components="components" :scope="scope" />
+    <FormilyPage :schema="schema" :components="components" :scope="scope" schemaKey="TableDynamicTable" />
   </div>
 </template>
 
 <script>
 import FormilyPage from '@/components/FormilyPage'
-import page from 'formily/views/table/dynamic-table'
+// import page from 'formily/views/table/dynamic-table'
+import { Store } from 'formily/views'
 
 export default {
   name: 'DynamicTable',
   components: { FormilyPage },
   data() {
     return {
-      schema: page.schema,
+      schema: Store.TableDynamicTable,
       components: {
         Container: 'div'
       },
