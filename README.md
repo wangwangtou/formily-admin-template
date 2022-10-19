@@ -67,11 +67,28 @@ npm run start
 ```
 
 浏览器访问 [http://localhost:3000](http://localhost:3000)
-## TODO
 
-> <del>添加 react 示例</del>
+## formily-designable 示例
 
-> 添加 formily-designable 示例，并可在项目中利用 designable 对页面进行修改
+在 react 项目中包含 formily-designable 示例， 可在项目中利用 designable 对页面进行修改， 修改后的schema在内存中保存，返回页面后可以查看更新过的页面
+
+* ./react/designable 主目录
+* ./react/designable/components 项目组件注册到designable的组件信息
+* ./react/designable/decorator  给designable增加decorator设置，可以从多个定义的decorator中选取
+* ./react/designable/schemas components和decorator的SchemaEditorWidget配置
+* ./react/designable/setters SchemaEditorWidget的组件
+* ./react/designable/dn 供designable控件的组件清单和分类
+* ./react/designable/formily formily组件汇总，含antd和项目组件
+* ./react/designable/main designable的渲染
+
+### 在vue中使用
+
+目前方案是使用 React 来完成设计器部分，然后通过 systemjs 加载到 Vue 中。
+
+* 使用react来定义各类控件，并对控件属性做映射，调整EditorSchema。（参考上述目录说明）
+* 在 ./react/editor.tsx 导出需要用到的模块
+* 通过 cd ./react && npm run build:editor ，构建 editor 的 systemjs模块文件， 会生成到 ./vue2/public 目录，直接当做vue项目的模版。模版中包含了 editor的 systemjs importmap
+* 通过 vue2/src/views/designable/index.vue 来加载designable
 
 ## License
 
