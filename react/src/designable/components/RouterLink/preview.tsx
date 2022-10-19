@@ -16,9 +16,9 @@ const NavLink = (props) => {
         if (typeof props.to == 'string') {
           hash = props.to
         } else if (props.to && props.to.path) {
-          hash = props.to.path
+          hash = JSON.stringify(props.to)
         }
-        location.hash = hash
+        console.log('NavLink to:', hash)
       }
     }/>
   )
