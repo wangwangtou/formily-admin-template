@@ -1,0 +1,23 @@
+.createPost-container {
+  position: relative;
+}
+.createPost-container .createPost-main-container {
+  padding: 40px 45px 20px 50px;
+}
+.createPost-container .postInfo-container-item {
+  margin-bottom: 22px;
+}
+.article-textarea textarea {
+  padding-right: 40px;
+  resize: none;
+  border: none;
+  border-radius: 0px;
+  border-bottom: 1px solid #bfcbd9;
+}
+.word-counter-addon .formily-element-form-item-addon-after {
+  width: 40px;
+  position: absolute;
+  right: 10px;
+  top: 0px;
+}
+

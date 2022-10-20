@@ -9,7 +9,7 @@
       -webkit-user-select: none;
     }
   </style>
-<link href="editor/editor.system.css" rel="stylesheet"></head>
+<link href="editor/css/editor.710381663a34dff11c53.css" rel="stylesheet"></head>
 <body>
   <div id="app">
   </div>
@@ -17,19 +17,24 @@
 <script type="systemjs-importmap">
   {
     "imports": {
-      "editor": "./editor/editor.system.bundle.js"
+      "React": "app:React",
+      "ReactDOM": "app:ReactDOM",
+      "moment": "app:moment",
+      "antd": "app:antd",
+      "editor": "./editor/js/editor.system.bundle.js"
     }
   }
 </script>
 
+<script src="https://unpkg.com/moment/min/moment-with-locales.js"></script>
+<script src="https://unpkg.com/react/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/antd/dist/antd-with-locales.min.js"></script>
 <script src="//unpkg.com/systemjs/dist/system.js"></script>
 <script>
-//  System.import('editor').then(function(module) {
-//    let React = module.React
-//    let ReactDOM = module.ReactDOM
-//    let Editor = module.Editor
-//
-//    ReactDOM.render(React.createElement(Editor), document.getElementById('app'))
-//  })
+  System.set('app:React', window.React)
+  System.set('app:ReactDOM', window.ReactDOM)
+  System.set('app:moment', window.moment)
+  System.set('app:antd', window.antd)
 </script>
 </body>
