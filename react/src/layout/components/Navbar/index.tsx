@@ -13,12 +13,15 @@ import {
   Tooltip,
   Dropdown,
   Menu,
+  Button,
 } from 'antd'
 
 import { useAppState, useUserState } from '@/hooks'
 import { NavLink } from 'react-router-dom'
 
 import './style.less'
+
+const vueAddress = process.env.REACT_APP_VUE_EXAMPLE_ADDRESS
 
 export const Navbar: React.FunctionComponent = () => {
   const { appState: {
@@ -36,6 +39,11 @@ export const Navbar: React.FunctionComponent = () => {
       <div className="right-menu">
         {device != 'mobile' ? (
           <>
+            {vueAddress ? <div className="right-menu-item">
+              <Button size="small" onClick={() => {
+                location.href = vueAddress
+              }}>Vue</Button>
+            </div> : null }
             <Search className="right-menu-item" />
 
             <ErrorLog className="errLog-container right-menu-item hover-effect" />

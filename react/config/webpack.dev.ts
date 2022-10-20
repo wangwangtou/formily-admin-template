@@ -6,8 +6,6 @@ import MonacoPlugin from 'monaco-editor-webpack-plugin'
 import webpack from 'webpack'
 import path from 'path'
 import mockServer from '../../mock/mock-server'
-// 与vue共用的mock代码，设置一下VUE_APP_BASE_API
-process.env.VUE_APP_BASE_API = '' 
 
 const PORT = 3000
 

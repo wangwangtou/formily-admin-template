@@ -4,6 +4,8 @@ import webpack from 'webpack'
 // import autoprefixer from 'autoprefixer'
 //import { getThemeVariables } from 'antd/dist/theme'
 
+// 与vue共用的mock代码，设置一下VUE_APP_BASE_API
+process.env.REACT_APP_BASE_API = '/formily-admin-template' 
 
 const getWorkspaceAlias = () => {
   const results = {
@@ -159,6 +161,12 @@ export default {
     ],
   },
   plugins: [
-    replaceModulePlugin
+    replaceModulePlugin,
+    new webpack.DefinePlugin({
+      ...Object.keys(process.env).filter(key => key.indexOf('REACT_APP_') == 0).reduce((pre, key) => {
+        pre['process.env.' + key] = `'${process.env[key]}'`
+        return pre
+      }, {})
+    })
   ]
 }

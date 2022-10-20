@@ -6,6 +6,9 @@
 
     <div class="right-menu">
       <template v-if="device!=='mobile'">
+        <div v-if="reactAddress" class="right-menu-item">
+          <el-button size="mini" @click="toReact">React</el-button>
+        </div>
         <search id="header-search" class="right-menu-item" />
 
         <error-log class="errLog-container right-menu-item hover-effect" />
@@ -63,6 +66,11 @@ export default {
     SizeSelect,
     Search
   },
+  data() {
+    return {
+      reactAddress: process.env.VUE_APP_REACT_EXAMPLE_ADDRESS
+    }
+  },
   computed: {
     ...mapGetters([
       'sidebar',
@@ -71,6 +79,9 @@ export default {
     ])
   },
   methods: {
+    toReact() {
+      location.href = this.reactAddress
+    },
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },
