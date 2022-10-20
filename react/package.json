@@ -13,13 +13,14 @@
     "npm": ">=3.0.0"
   },
   "scripts": {
-    "build": "webpack-cli --config config/webpack.prod.ts",
-    "build:editor": "webpack-cli --config config/webpack.editor.ts",
+    "build": "webpack-cli --config config/webpack.prod.js",
+    "build:editor": "webpack-cli --config config/webpack.editor.js",
     "dev": "npm run start",
-    "start": "webpack-dev-server --config config/webpack.dev.ts"
+    "start": "webpack-dev-server --config config/webpack.dev.js"
   },
   "devDependencies": {
     "autoprefixer": "^9.0",
+    "clean-webpack-plugin": "^4.0.0",
     "file-loader": "^5.0.2",
     "fs-extra": "^8.1.0",
     "html-webpack-plugin": "^3.2.0",

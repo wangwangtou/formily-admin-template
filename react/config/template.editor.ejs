@@ -17,19 +17,24 @@
 <script type="systemjs-importmap">
   {
     "imports": {
+      "React": "app:React",
+      "ReactDOM": "app:ReactDOM",
+      "moment": "app:moment",
+      "antd": "app:antd",
       "editor": "<%= (htmlWebpackPlugin.files.publicPath || './') + htmlWebpackPlugin.files.chunks.editor.entry %>"
     }
   }
 </script>
 <%= htmlWebpackPlugin.files.js.filter(js => js != htmlWebpackPlugin.files.chunks.editor.entry).map(js => "<script src=\"" + htmlWebpackPlugin.files.publicPath + js + "\" ></script>").join("") %>
+<script src="https://unpkg.com/moment/min/moment-with-locales.js"></script>
+<script src="https://unpkg.com/react/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/antd/dist/antd-with-locales.min.js"></script>
 <script src="//unpkg.com/systemjs/dist/system.js"></script>
 <script>
-//  System.import('editor').then(function(module) {
-//    let React = module.React
-//    let ReactDOM = module.ReactDOM
-//    let Editor = module.Editor
-//
-//    ReactDOM.render(React.createElement(Editor), document.getElementById('app'))
-//  })
+  System.set('app:React', window.React)
+  System.set('app:ReactDOM', window.ReactDOM)
+  System.set('app:moment', window.moment)
+  System.set('app:antd', window.antd)
 </script>
 </body>
