@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[12],{834:function(n,e,t){"use strict";t.r(e),t.d(e,"Redirect",(function(){return i}));var r=t(0),c=t.n(r),i=function(){return c.a.createElement("div",null,"Redirect")}}}]);

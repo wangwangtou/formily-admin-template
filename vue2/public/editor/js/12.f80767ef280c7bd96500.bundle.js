@@ -1,0 +1,1 @@
+(window.adminTemplateEditor=window.adminTemplateEditor||[]).push([[12],{839:function(e,n,t){"use strict";t.r(n),t.d(n,"Redirect",(function(){return d}));var i=t(0),r=t.n(i),d=function(){return r.a.createElement("div",null,"Redirect")}}}]);

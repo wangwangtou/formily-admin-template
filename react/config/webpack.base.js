@@ -227,7 +227,7 @@ module.exports = function (targetDir){
       }),
       new MonacoPlugin({
         languages: ['json'],
-        filename: 'react/wjs/[name].worker.js'
+        filename: targetDir + '/wjs/[name].worker.js'
       }),
     ]
   }

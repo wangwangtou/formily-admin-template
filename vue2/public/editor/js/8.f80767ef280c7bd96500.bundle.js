@@ -1,0 +1,1 @@
+(window.adminTemplateEditor=window.adminTemplateEditor||[]).push([[8],{837:function(n,t,e){"use strict";e.r(t),e.d(t,"AuthRedirect",(function(){return d}));var i=e(0),r=e.n(i),d=function(){return r.a.createElement("div",null)}}}]);

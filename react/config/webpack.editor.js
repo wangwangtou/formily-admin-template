@@ -12,6 +12,7 @@ module.exports = {
   },
   mode: 'production',
   output: {
+    jsonpFunction: 'adminTemplateEditor',
     path: outputPath,
     filename: 'editor/js/[name].system.bundle.js',
     chunkFilename: 'editor/js/[name].[hash].bundle.js',

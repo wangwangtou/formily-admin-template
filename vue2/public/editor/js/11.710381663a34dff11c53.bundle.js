@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[11],{835:function(n,e,r){"use strict";r.r(e),r.d(e,"Profile",(function(){return t}));var i=r(0),o=r.n(i),t=function(){return o.a.createElement("div",null,"Profile")}}}]);
