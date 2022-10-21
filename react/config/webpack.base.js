@@ -216,9 +216,10 @@ module.exports = function (targetDir){
       replaceModulePlugin,
       new webpack.DefinePlugin({
         ...Object.keys(process.env).filter(key => key.indexOf('REACT_APP_') == 0).reduce((pre, key) => {
-          pre['process.env.' + key] = `'${process.env[key]}'`
+          pre['process.env.' + key] = `'${process.env[key].trimEnd()}'`
           return pre
-        }, {})
+        }, {}),
+        'process.env.NODE_ENV': `'${(process.env.NODE_ENV || 'development').trimEnd()}'`
       }),
       new MiniCssExtractPlugin({
         filename: targetDir + '/css/[name].[hash].css',

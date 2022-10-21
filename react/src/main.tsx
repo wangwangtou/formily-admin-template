@@ -8,6 +8,11 @@ import '@formily/antd/dist/antd.css';
 import '@/utils/schemaPatches'
 import '@/styles/index.less' // global css
 
+if (process.env.NODE_ENV === 'production') {
+  const { mockXHR } = require('../../mock')
+  mockXHR()
+}
+
 ReactDOM.render((
   <HashRouter>
     <App />
