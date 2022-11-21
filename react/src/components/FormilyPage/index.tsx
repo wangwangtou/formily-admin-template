@@ -1,4 +1,4 @@
-import React, { useState, } from 'react'
+import React, { useState, useMemo } from 'react'
 
 import { createForm, Form } from '@formily/core'
 import { FormProvider, FormConsumer, createSchemaField, JSXComponent } from '@formily/react'
@@ -52,9 +52,12 @@ export const SchemaField = createSchemaField({
 })
 
 export const FormilyPage: React.FunctionComponent<FormilyPageProps> = ({ schema, schemaKey, components, effects, scope, before, after, children }) => {
-  const form = createForm({
-    effects
-  })
+  const form = useMemo(
+    () => createForm({
+      effects
+    }),
+    []
+  )
   const scopeWithAT = {
     ...AdminTemplateScope,
     ...scope,
